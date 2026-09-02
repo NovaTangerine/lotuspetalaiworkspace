@@ -322,7 +322,7 @@
                     </div>
                     <p class="text-body _accordionBody_dqvvu_77">Government contracting comes with layers of complexity: compliance requirements, evolving mandates, and coordination across agencies. Every proposal needs to be clear, accurate, and aligned with public interest. We understand that your work isn't just about winning bids; it's about earning trust and delivering with integrity.</p>
                   </div>
-                  <div class="_accordionItem_dqvvu_51" data-industry="Consulting" data-img="./assets/government-DzXznlco.svg">
+                  <div class="_accordionItem_dqvvu_51" data-industry="Consulting" data-img="./assets/it-DctW7sHp.svg">
                     <div class="_accordionHeader_dqvvu_56">
                       <h3 class="text-header-subsection-sm _accordionTitle_dqvvu_63">Consulting</h3>
                       <span class="_accordionIcon_dqvvu_71">
@@ -331,9 +331,9 @@
                         </svg>
                       </span>
                     </div>
-                    <p class="text-body _accordionBody_dqvvu_77" style="display:none;">Deliver tailored, data-backed consulting proposals with speed. Synthesize capabilities, align methodologies, and differentiate your team on technical rigor and business impact.</p>
+                    <p class="text-body _accordionBody_dqvvu_77" style="display:none;">In consulting, no two projects are the same. You're expected to adapt quickly, make sense of ambiguity, and deliver solutions that fit each client's environment. Writing proposals in this space means translating technical depth into clear business value. We know how much strategy goes into every word.</p>
                   </div>
-                  <div class="_accordionItem_dqvvu_51" data-industry="Manufacturing" data-img="./assets/government-DzXznlco.svg">
+                  <div class="_accordionItem_dqvvu_51" data-industry="Manufacturing" data-img="./assets/manufacturing-CZ4p19gT.jpg">
                     <div class="_accordionHeader_dqvvu_56">
                       <h3 class="text-header-subsection-sm _accordionTitle_dqvvu_63">Manufacturing</h3>
                       <span class="_accordionIcon_dqvvu_71">
@@ -342,9 +342,9 @@
                         </svg>
                       </span>
                     </div>
-                    <p class="text-body _accordionBody_dqvvu_77" style="display:none;">Streamline complex spec responses, supply chain validations, and technical compliance matrices with precision-engineered proposal generation.</p>
+                    <p class="text-body _accordionBody_dqvvu_77" style="display:none;">Manufacturing bids require more than just numbers. You're balancing production schedules, quality standards, and detailed technical requirements, often under tight timelines. Whether you're quoting for custom components or large-scale contracts, the challenge is showing precision without overcomplicating. We understand that the details matter.</p>
                   </div>
-                  <div class="_accordionItem_dqvvu_51" data-industry="Construction" data-img="./assets/government-DzXznlco.svg">
+                  <div class="_accordionItem_dqvvu_51" data-industry="Construction" data-img="./assets/construction-DodmdsAC.jpg">
                     <div class="_accordionHeader_dqvvu_56">
                       <h3 class="text-header-subsection-sm _accordionTitle_dqvvu_63">Construction</h3>
                       <span class="_accordionIcon_dqvvu_71">
@@ -353,9 +353,9 @@
                         </svg>
                       </span>
                     </div>
-                    <p class="text-body _accordionBody_dqvvu_77" style="display:none;">Accelerate project bidding, safety and bonding compliance documentation, and resource scheduling proposals across public and commercial projects.</p>
+                    <p class="text-body _accordionBody_dqvvu_77" style="display:none;">Putting together a construction proposal means managing a lot at once: design intent, site conditions, labor, materials, and timelines. It's not just about estimating cost, but demonstrating that you can deliver, even when plans shift. We know how much real-world experience goes into crafting a credible bid.</p>
                   </div>
-                  <div class="_accordionItem_dqvvu_51" data-industry="Healthcare" data-img="./assets/government-DzXznlco.svg">
+                  <div class="_accordionItem_dqvvu_51" data-industry="Healthcare" data-img="./assets/healthcare-CIjAS8Ir.svg">
                     <div class="_accordionHeader_dqvvu_56">
                       <h3 class="text-header-subsection-sm _accordionTitle_dqvvu_63">Healthcare</h3>
                       <span class="_accordionIcon_dqvvu_71">
@@ -364,7 +364,7 @@
                         </svg>
                       </span>
                     </div>
-                    <p class="text-body _accordionBody_dqvvu_77" style="display:none;">Navigate strict regulatory mandates, HIPAA security controls, and health agency RFPs with automated compliance checklists and verified content.</p>
+                    <p class="text-body _accordionBody_dqvvu_77" style="display:none;">In healthcare, the impact of your work reaches far beyond the page. Whether you're proposing services, technology, or supplies, you're working in a high-stakes environment shaped by regulation, urgency, and care for people. We understand that each proposal reflects your ability to support outcomes that matter.</p>
                   </div>
                 </div>
               </div>
@@ -675,7 +675,10 @@
         const name = item.getAttribute('data-industry');
         const img = item.getAttribute('data-img');
         if (industryPill) industryPill.textContent = name;
-        if (industryImage && img) industryImage.src = img;
+        if (industryImage && img) {
+          industryImage.src = img;
+          industryImage.alt = name;
+        }
       });
     });
 
