@@ -1935,6 +1935,7 @@ body {
   }
 }
 .hero {
+  position: relative;
   flex: 1;
   display: flex;
   flex-direction: row;
@@ -1943,6 +1944,7 @@ body {
   overflow: hidden;
 }
 .hero-left {
+  position: relative;
   flex: 1.25;
   display: flex;
   flex-direction: column;
@@ -1964,7 +1966,8 @@ body {
 .hero-heading {
   font-size: 5rem;
   font-weight: 600;
-  line-height: 100%;
+  line-height: 1.1;
+  padding-bottom: 0.1em;
   background: linear-gradient(128.77deg, #9c258f 1.39%, #0bc 69.29%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -11935,4 +11938,187 @@ body {
 ._body_m2oit_39 a {
   color: var(--color-primary, #2563eb);
   text-decoration: underline;
+}
+
+/* GovDash Pipeline Section (Rebuilt) */
+.pipeline-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 64px auto;
+  padding: 0 24px;
+}
+.pipeline-container {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 0;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.05);
+}
+.pipeline-tabs-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.pipeline-nav {
+  display: flex;
+  border-bottom: 1px solid #e5e7eb;
+}
+.pipeline-tab {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-right: 1px solid #e5e7eb;
+  padding: 16px 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s, color 0.2s;
+  color: #6b7280;
+}
+.pipeline-tab:last-child {
+  border-right: none;
+}
+.pipeline-tab:hover {
+  background: rgba(0,0,0,0.02);
+  color: #111827;
+}
+.pipeline-tab.active {
+  color: #0868de;
+  background: rgba(8, 104, 222, 0.05);
+}
+.pipeline-tab-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: transparent;
+  transition: background 0.2s;
+}
+.pipeline-tab.active .pipeline-tab-indicator {
+  background: #0868de;
+}
+.pipeline-tab-text {
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+.pipeline-content-text {
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.pipeline-pane {
+  display: none;
+  animation: fadeIn 0.4s ease forwards;
+}
+.pipeline-pane.active {
+  display: block;
+}
+.pipeline-pane h3 {
+  margin: 0 0 12px 0;
+  font-size: 24px;
+  color: #111827;
+}
+.pipeline-pane p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #4b5563;
+}
+.pipeline-visual-wrapper {
+  background: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  border-left: 1px solid #e5e7eb;
+}
+.pipeline-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+  display: none;
+  animation: slideUpFade 0.5s ease forwards;
+}
+.pipeline-img.active {
+  display: block;
+}
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@media (max-width: 900px) {
+  .pipeline-container {
+    grid-template-columns: 1fr;
+  }
+  .pipeline-visual-wrapper {
+    border-left: none;
+    border-top: 1px solid #e5e7eb;
+  }
+  .pipeline-nav {
+    overflow-x: auto;
+  }
+}
+
+/* Hero Tabs Hover Component */
+.hero-tabs-hover {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  background: white;
+  padding: 8px;
+  border-radius: 99px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.hero-hover-tab {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 99px;
+  padding: 8px 16px;
+  white-space: nowrap;
+  color: #525252;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.hero-hover-tab:hover {
+  background: #f3f4f6;
+  color: #171717;
+}
+.hero-hover-tab.active {
+  background: #171717;
+  border-color: transparent;
+  color: #ffffff;
+}
+.hero-text-variant, .hero-visual-variant {
+  display: none;
+  animation: heroFadeIn 0.4s ease forwards;
+}
+.hero-text-variant.active, .hero-visual-variant.active {
+  display: block;
+}
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
