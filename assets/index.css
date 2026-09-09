@@ -12130,3 +12130,302 @@ body {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ----------------------------------------
+   PetalOS Lifecycle Interactive Section 
+------------------------------------------- */
+
+.petalos-lifecycle-section {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  max-width: 100vw;
+  box-sizing: border-box;
+  background-image: 
+    linear-gradient(#FFFFFF03, #FFFFFF03), 
+    radial-gradient(ellipse 50% 50% at 50% 50%, rgba(133, 15, 88, 0.8) 0%, rgba(35, 5, 24, 0) 100%), 
+    linear-gradient(225deg, #3d0728 0%, #580c3c 51%, #850f58 72%, #580c3c 86%, #3d0728 100%);
+  background-color: #3d0728;
+  padding: 6rem 1rem;
+  color: #ffffff;
+  overflow: hidden;
+  font-family: var(--font);
+}
+
+.petalos-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+
+.petalos-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.petalos-title {
+  font-size: clamp(3rem, 8vw, 5rem); /* 80px */
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  margin: 0;
+  position: relative;
+  background: linear-gradient(180deg, #FDE2F3 0%, #D4268F 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0px 0px 32px rgba(255, 31, 169, 0.67));
+  display: inline-flex;
+  align-items: flex-start;
+}
+
+.petalos-tm {
+  width: 22px;
+  height: 11px;
+  margin-left: 4px;
+  margin-top: 10px;
+}
+
+.petalos-subtitle {
+  font-size: clamp(1.5rem, 4vw, 3rem); /* 48px */
+  font-weight: 700;
+  color: #FFCDEC;
+  margin: 0;
+}
+
+.petalos-desc {
+  font-size: 1.125rem; /* 18px */
+  font-weight: 500;
+  color: #DF8CBF;
+  line-height: 1.5;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* Pipeline Track */
+.petalos-pipeline-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 831px;
+  padding-bottom: 2rem; /* space for labels */
+}
+
+.petalos-track-container {
+  position: absolute;
+  top: 37px; /* Half of 74px circle */
+  left: 37px;
+  right: 37px;
+  height: 1px;
+  z-index: 1;
+}
+
+.petalos-track-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(90deg, #E841A8, #E841A8 4px, transparent 4px, transparent 8px);
+  z-index: 1;
+}
+
+.petalos-track-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: #DA0A8A;
+  z-index: 2;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 8px #DA0A8A;
+}
+
+.petalos-nodes {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 3;
+}
+
+.petalos-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  width: 74px; /* Fix width so labels don't shift layout */
+  position: relative;
+}
+
+.petalos-circle {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background-color: #6B0650;
+  border: 1px solid #DA0A8A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  flex-shrink: 0;
+}
+
+.petalos-icon {
+  width: 74px;
+  height: 74px;
+  color: #BA0073;
+  transition: all 0.4s ease;
+}
+
+.petalos-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255, 205, 236, 0.5);
+  transition: all 0.4s ease;
+  white-space: nowrap;
+  position: absolute;
+  top: 86px; /* below circle */
+}
+
+/* Active State */
+.petalos-node.active .petalos-circle {
+  background-color: #DA0A8A;
+  border-color: #DA0A8A;
+  box-shadow: 0 0 24px rgba(218, 10, 138, 0.6);
+}
+
+.petalos-node.active .petalos-icon {
+  color: #FFFFFF;
+}
+
+.petalos-node.active .petalos-label {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.petalos-node.current .petalos-circle {
+  transform: scale(1.1);
+}
+
+/* Hover States */
+.petalos-node:not(.active):hover .petalos-circle {
+  background-color: #DA0A8A;
+  border-color: #DA0A8A;
+  box-shadow: 0 0 24px rgba(218, 10, 138, 0.6);
+}
+
+.petalos-node:not(.active):hover .petalos-icon {
+  color: #FFFFFF;
+}
+
+.petalos-node:not(.active):hover .petalos-label {
+  color: #FFFFFF;
+}
+
+.petalos-node.active:hover {
+  filter: brightness(0.85);
+}
+
+/* Detail Cards */
+.petalos-details {
+  width: 100%;
+  max-width: 600px;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.petalos-details.open {
+  grid-template-rows: 1fr;
+}
+
+.petalos-details-inner {
+  overflow: hidden;
+  display: grid;
+  width: 100%;
+}
+
+.petalos-detail-card {
+  grid-area: 1 / 1;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: all 0.4s ease;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-med);
+  padding: 1.5rem;
+  backdrop-filter: blur(12px);
+  text-align: center;
+}
+
+.petalos-detail-card.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.petalos-detail-card p {
+  margin: 0;
+  font-size: 1.125rem;
+  color: #FFCDEC;
+  line-height: 1.5;
+}
+
+/* Controls */
+.petalos-controls {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.petalos-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.petalos-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.petalos-btn.primary {
+  background: #DA0A8A;
+  border-color: #DA0A8A;
+}
+
+.petalos-btn.primary:hover {
+  background: #ff1fa9;
+}
+
+@media (max-width: 768px) {
+  .petalos-pipeline-wrapper {
+    overflow-x: auto;
+    padding-bottom: 3rem;
+  }
+  .petalos-nodes {
+    min-width: 600px; /* force scrolling */
+  }
+  .petalos-track-bg, .petalos-track-progress {
+    min-width: calc(600px - 74px);
+  }
+}
+
