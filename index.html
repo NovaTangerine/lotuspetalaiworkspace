@@ -277,6 +277,74 @@
 
           <!-- PetalOS Lifecycle Interactive Section -->
           <section id="petalos-lifecycle" class="petalos-lifecycle-section">
+            <div class="petalos-light-trails">
+              <!-- Left Trail -->
+              <div class="petalos-trail-wrapper left">
+                <div class="petalos-trail-spin-outer">
+                  <div class="petalos-trail-spin-inner">
+                    <div class="petalos-trail-offset">
+                      <svg viewBox="0 0 100 100" class="petalos-trail-svg" fill="none" overflow="visible">
+                        <defs>
+                          <linearGradient id="grad-trail-left" x1="10%" y1="0%" x2="90%" y2="0%">
+                            <stop offset="0%" stop-color="#DA0A8A" stop-opacity="1" />
+                            <stop offset="50%" stop-color="#DA0A8A" stop-opacity="0.3" />
+                            <stop offset="100%" stop-color="#DA0A8A" stop-opacity="0" />
+                          </linearGradient>
+                          <filter id="glow-trail-left" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="2" result="blur" />
+                            <feMerge>
+                              <feMergeNode in="blur" />
+                              <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                          </filter>
+                          <radialGradient id="spark-glow-left">
+                            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+                            <stop offset="15%" stop-color="#DA0A8A" stop-opacity="0.5" />
+                            <stop offset="80%" stop-color="#DA0A8A" stop-opacity="0" />
+                          </radialGradient>
+                        </defs>
+                        <path d="M 10 50 A 40 40 0 0 1 90 50" stroke="url(#grad-trail-left)" stroke-width="1.5" stroke-linecap="round" filter="url(#glow-trail-left)" />
+                        <circle cx="10" cy="50" r="10" fill="url(#spark-glow-left)" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Trail -->
+              <div class="petalos-trail-wrapper right">
+                <div class="petalos-trail-spin-outer delay">
+                  <div class="petalos-trail-spin-inner delay">
+                    <div class="petalos-trail-offset">
+                      <svg viewBox="0 0 100 100" class="petalos-trail-svg" style="transform: rotate(180deg);" fill="none" overflow="visible">
+                        <defs>
+                          <linearGradient id="grad-trail-right" x1="10%" y1="0%" x2="90%" y2="0%">
+                            <stop offset="0%" stop-color="#E841A8" stop-opacity="1" />
+                            <stop offset="50%" stop-color="#E841A8" stop-opacity="0.3" />
+                            <stop offset="100%" stop-color="#E841A8" stop-opacity="0" />
+                          </linearGradient>
+                          <filter id="glow-trail-right" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="2" result="blur" />
+                            <feMerge>
+                              <feMergeNode in="blur" />
+                              <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                          </filter>
+                          <radialGradient id="spark-glow-right">
+                            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+                            <stop offset="15%" stop-color="#E841A8" stop-opacity="0.5" />
+                            <stop offset="80%" stop-color="#E841A8" stop-opacity="0" />
+                          </radialGradient>
+                        </defs>
+                        <path d="M 10 50 A 40 40 0 0 1 90 50" stroke="url(#grad-trail-right)" stroke-width="1.5" stroke-linecap="round" filter="url(#glow-trail-right)" />
+                        <circle cx="10" cy="50" r="10" fill="url(#spark-glow-right)" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
             <div class="petalos-container">
               <div class="petalos-header">
                 <h1 class="petalos-title">PetalOS<svg viewBox="0 0 22.24 11.26" class="petalos-tm" xmlns="http://www.w3.org/2000/svg"><path d="M0.000 1.696C0.000 1.696 0.000 0.000 0.000 0.000C0.000 0.000 7.840 0.000 7.840 0.000C7.840 0.000 7.840 1.696 7.840 1.696C7.840 1.696 4.992 1.696 4.992 1.696C4.992 1.696 4.992 11.264 4.992 11.264C4.992 11.264 2.848 11.264 2.848 11.264C2.848 11.264 2.848 1.696 2.848 1.696C2.848 1.696 0.000 1.696 0.000 1.696ZM9.568 11.264C9.568 11.264 9.568 0.000 9.568 0.000C9.568 0.000 12.288 0.000 12.288 0.000C12.288 0.000 15.904 8.736 15.904 8.736C15.904 8.736 19.680 0.000 19.680 0.000C19.680 0.000 22.240 0.000 22.240 0.000C22.240 0.000 22.240 11.264 22.240 11.264C22.240 11.264 20.256 11.264 20.256 11.264C20.256 11.264 20.256 2.880 20.256 2.880C20.256 2.880 16.608 11.264 16.608 11.264C16.608 11.264 15.072 11.264 15.072 11.264C15.072 11.264 11.488 2.816 11.488 2.816C11.488 2.816 11.488 11.264 11.488 11.264C11.488 11.264 9.568 11.264 9.568 11.264Z" fillRule="nonzero" fill="#FFFFFF" /></svg></h1>

@@ -12160,6 +12160,60 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 4rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* Glowing Light Trails */
+.petalos-light-trails {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  z-index: 0;
+}
+.petalos-trail-wrapper {
+  position: absolute;
+  width: 1400px;
+  height: 1400px;
+  top: 50%;
+  left: 50%;
+  margin-top: -700px;
+  margin-left: -700px;
+}
+
+.petalos-trail-spin-outer {
+  width: 100%; height: 100%;
+  animation: petalos-spin-cw 17s linear infinite;
+}
+.petalos-trail-spin-outer.delay { animation-delay: -8.5s; }
+
+.petalos-trail-spin-inner {
+  width: 100%; height: 100%;
+  animation: petalos-spin-ccw 13s linear infinite;
+}
+.petalos-trail-spin-inner.delay { animation-delay: -6.5s; }
+
+.petalos-trail-offset {
+  width: 100%; height: 100%;
+  transform: translateX(24px);
+}
+.petalos-trail-svg {
+  position: absolute;
+  width: 100%; height: 100%;
+}
+
+@keyframes petalos-spin-cw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes petalos-spin-ccw {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
 }
 
 .petalos-header {
