@@ -1220,7 +1220,7 @@ body {
   width: 100%;
   box-sizing: border-box;
   background-color: #fff;
-  font-family: DM Sans;
+  font-family: "DM Sans", var(--font), sans-serif;
   -webkit-mask-image: linear-gradient(90deg, #0000, #000 10%, #000 90%, #0000);
   mask-image: linear-gradient(90deg, #0000, #000 10%, #000 90%, #0000);
 }
@@ -1229,20 +1229,25 @@ body {
   white-space: nowrap;
   position: relative;
   width: 100%;
-  gap: 24px;
+  display: flex;
 }
 ._marquee-content_1tx62_25 {
   display: inline-flex;
-  min-width: 200%;
+  flex-shrink: 0;
+  width: max-content;
   will-change: transform;
   animation: _scroll-left_1tx62_1 30s linear infinite;
-  font-family: DM Sans;
+  font-family: "DM Sans", var(--font), sans-serif;
 }
 ._rolling-button_1tx62_35 {
   display: inline-flex;
   align-items: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+  box-sizing: border-box;
+  width: max-content;
   margin-right: 24px;
-  padding: 4px 12px;
+  padding: 6px 18px;
   border-radius: 999px;
   background: #fff;
   border: 2px solid transparent;
@@ -1257,7 +1262,8 @@ body {
 ._icon_1tx62_51 {
   width: 28px;
   height: 28px;
-  margin-right: 8px;
+  margin-right: 10px;
+  flex-shrink: 0;
 }
 ._slow_1tx62_58 ._marquee-content_1tx62_25 {
   animation-duration: 40s;
@@ -1295,22 +1301,27 @@ body {
     gap: 12px;
   }
   ._marquee-content_1tx62_25 {
-    width: fit-content;
+    width: max-content;
     height: fit-content;
+    flex-shrink: 0;
   }
   ._rolling-button_1tx62_35 {
-    padding: 6px 12px;
+    padding: 6px 16px;
     border: 2px solid transparent;
-    font-size: 18px;
-    border-radius: 100px;
-    gap: 10px;
-    width: fit-content;
+    font-size: 16px;
+    border-radius: 999px;
+    gap: 8px;
+    width: max-content;
     height: fit-content;
     color: #000;
+    flex-shrink: 0;
+    white-space: nowrap;
+    box-sizing: border-box;
   }
   ._icon_1tx62_51 {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
   }
 }
 ._trusted-section_23nsp_4 {
@@ -2370,7 +2381,6 @@ body {
     transform 0.2s ease;
 }
 ._chevron_7drst_91 {
-  transition: transform 0.3s ease;
 }
 ._faqItem_7drst_48._open_7drst_95 ._chevron_7drst_91 {
   transform: rotate(180deg);
@@ -2378,14 +2388,15 @@ body {
 ._answerWrapper_7drst_100 {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.3s ease;
-  overflow: hidden;
 }
 ._faqItem_7drst_48._open_7drst_95 ._answerWrapper_7drst_100 {
   grid-template-rows: 1fr;
 }
-._answer_7drst_100 {
+._answerWrapper_7drst_100 > div {
+  overflow: hidden;
   min-height: 0;
+}
+._answer_7drst_100 {
   font-size: 18px;
   line-height: 1.7;
   padding: 4px 4px 22px;
