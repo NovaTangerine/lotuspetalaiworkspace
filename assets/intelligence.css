@@ -1,0 +1,201 @@
+.intelligence-layer-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: var(--font), "DM Sans", sans-serif;
+  background-color: transparent;
+}
+
+.intelligence-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+@media (max-width: 968px) {
+  .intelligence-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.intelligence-graphic {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  background-color: transparent;
+}
+
+.intelligence-graphic::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  right: -100px;
+  bottom: -100px;
+  z-index: 0;
+  pointer-events: none;
+  background-image: 
+    linear-gradient(to right, rgba(209, 13, 136, 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(209, 13, 136, 0.4) 1px, transparent 1px);
+  background-size: 64px 64px;
+  /* Fade out organically at the edges */
+  mask-image: radial-gradient(ellipse at center, black 0%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 80%);
+}
+
+.intel-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.intel-node {
+  position: absolute;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.intel-node:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+.intel-node-source {
+  width: 74px;
+  height: 74px;
+  background: white;
+  border: 1px solid #D9C6CE;
+  color: #B3B3B3;
+  animation: float 6s ease-in-out infinite;
+}
+
+.intel-node-source.active {
+  background: linear-gradient(135deg, #FF66C4, #D10D88);
+  color: white;
+  border: none;
+  box-shadow: 0px 4px 12px rgba(209, 13, 136, 0.4);
+  animation: float 6s ease-in-out infinite 1s, pulse 3s infinite;
+}
+
+.intel-node-primary {
+  width: 90px;
+  height: 90px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #D10D88, #5A063C);
+  color: white;
+  z-index: 3;
+  box-shadow: 0px 8px 16px rgba(209, 13, 136, 0.3);
+  animation: float 6s ease-in-out infinite 2s;
+}
+
+.intel-tag {
+  position: absolute;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-family: 'Geist Mono', monospace, sans-serif;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: -0.005em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 4;
+}
+
+.intel-tag-gathering {
+  top: 14px;
+  left: 320px;
+  background-color: #D9C6CE;
+  color: #666666;
+  animation: float-center 6s ease-in-out infinite 0.5s;
+}
+
+.intel-tag-found {
+  bottom: 30px;
+  left: 30px;
+  background-color: #D10D88;
+  color: #FADAEE;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  animation: float 6s ease-in-out infinite 1.5s;
+}
+
+.intel-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.intel-body-text {
+  line-height: 1.6;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(209, 13, 136, 0.6); }
+  70% { box-shadow: 0 0 0 15px rgba(209, 13, 136, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(209, 13, 136, 0); }
+}
+
+/* Static gradient text for headers */
+.intel-title-gradient {
+  background: linear-gradient(135deg, #D10D88 0%, #FFA0DC 50%, #D10D88 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* Temporary test button */
+.test-btn {
+  margin-top: 32px;
+  padding: 10px 20px;
+  border: 1px solid #D9C6CE;
+  border-radius: 8px;
+  background: white;
+  color: #6b7280;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.test-btn:hover {
+  border-color: #D10D88;
+  color: #D10D88;
+}
+
+/* Animated SVG path */
+
+@keyframes float-center {
+  0% { transform: translate(-50%, 0px); }
+  50% { transform: translate(-50%, -8px); }
+  100% { transform: translate(-50%, 0px); }
+}
+
+/* Binary processing rotation for gathering icon */
+.intel-processing-icon {
+  transform-origin: center;
+  animation: process-spin 10s steps(8, end) infinite;
+}
+
+@keyframes process-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

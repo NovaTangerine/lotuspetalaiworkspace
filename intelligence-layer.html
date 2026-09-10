@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intelligence Layer Test</title>
+  <link rel="stylesheet" href="./assets/index.css">
+  <link rel="stylesheet" href="./assets/intelligence.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: #ffffff; margin: 0; padding: 2rem; display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+
+  <section class="intelligence-layer-section">
+    <div class="intelligence-container">
+      
+      <!-- Visual Graphic Column -->
+      <div class="intelligence-graphic">
+        
+        <!-- Status Tags -->
+        <div class="intel-tag intel-tag-gathering">
+          <svg class="intel-processing-icon" viewBox="0 0 16 22" width="16" height="22" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.100 15.050C0.733 14.417 0.458 13.767 0.275 13.100C0.092 12.433 0.000 11.750 0.000 11.050C0.000 8.817 0.775 6.917 2.325 5.350C3.875 3.783 5.767 3.000 8.000 3.000C8.000 3.000 8.175 3.000 8.175 3.000C8.175 3.000 6.575 1.400 6.575 1.400C6.575 1.400 7.975 0.000 7.975 0.000C7.975 0.000 11.975 4.000 11.975 4.000C11.975 4.000 7.975 8.000 7.975 8.000C7.975 8.000 6.575 6.600 6.575 6.600C6.575 6.600 8.175 5.000 8.175 5.000C8.175 5.000 8.000 5.000 8.000 5.000C6.333 5.000 4.917 5.588 3.750 6.763C2.583 7.938 2.000 9.367 2.000 11.050C2.000 11.483 2.050 11.908 2.150 12.325C2.250 12.742 2.400 13.150 2.600 13.550C2.600 13.550 1.100 15.050 1.100 15.050ZM8.025 22.000C8.025 22.000 4.025 18.000 4.025 18.000C4.025 18.000 8.025 14.000 8.025 14.000C8.025 14.000 9.425 15.400 9.425 15.400C9.425 15.400 7.825 17.000 7.825 17.000C7.825 17.000 8.000 17.000 8.000 17.000C9.667 17.000 11.083 16.413 12.250 15.238C13.417 14.063 14.000 12.633 14.000 10.950C14.000 10.517 13.950 10.092 13.850 9.675C13.750 9.258 13.600 8.850 13.400 8.450C13.400 8.450 14.900 6.950 14.900 6.950C15.267 7.583 15.542 8.233 15.725 8.900C15.908 9.567 16.000 10.250 16.000 10.950C16.000 13.183 15.225 15.083 13.675 16.650C12.125 18.217 10.233 19.000 8.000 19.000C8.000 19.000 7.825 19.000 7.825 19.000C7.825 19.000 9.425 20.600 9.425 20.600C9.425 20.600 8.025 22.000 8.025 22.000Z" fillRule="nonzero" fill="currentColor" />
+          </svg>
+          Gathering context...
+        </div>
+
+        <div class="intel-tag intel-tag-found">
+          14 similar Proposals found
+        </div>
+
+        <svg class="intel-lines" width="100%" height="100%">
+          <defs>
+            <linearGradient id="mystic-shimmer" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="250" y2="0" spreadMethod="repeat">
+              <stop offset="0%" stop-color="#D10D88" />
+              <stop offset="35%" stop-color="#D10D88" />
+              <stop offset="45%" stop-color="#FFA0DC" />
+              <stop offset="50%" stop-color="#FFFFFF" />
+              <stop offset="55%" stop-color="#FFA0DC" />
+              <stop offset="65%" stop-color="#D10D88" />
+              <stop offset="100%" stop-color="#D10D88" />
+              <animateTransform attributeName="gradientTransform" type="translate" values="0 0; 250 0" dur="1.2s" repeatCount="indefinite" />
+            </linearGradient>
+            
+            <filter id="glow" filterUnits="userSpaceOnUse" x="-100" y="-100" width="1000" height="1000">
+              <feGaussianBlur stdDeviation="3" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <!-- Top Line (Inactive Background) -->
+          <path class="intel-line" d="M 97 75 L 153 75 Q 161 75 167 81 L 243 157 Q 249 163 257 163 L 285 163" fill="none" stroke="#D9C6CE" stroke-width="3" />
+
+          <!-- Mid Line (Inactive) -->
+          <path class="intel-line" d="M 177 175 L 285 175" fill="none" stroke="#D9C6CE" stroke-width="3" />
+          
+          <!-- Bottom Line (Inactive) -->
+          <path class="intel-line" d="M 137 275 L 153 275 Q 161 275 167 269 L 243 193 Q 249 187 257 187 L 285 187" fill="none" stroke="#D9C6CE" stroke-width="3" />
+          
+          <!-- Output Line (Inactive) -->
+          <path class="intel-line" d="M 355 175 L 463 175" fill="none" stroke="#D9C6CE" stroke-width="3" />
+
+          <!-- Active Line (Rendered last to sit on top of inactive lines) -->
+          <path id="active-path" class="intel-line-active" d="M 97 75 L 153 75 Q 161 75 167 81 L 243 157 Q 249 163 257 163 L 285 163 C 320 163 320 175 355 175 L 463 175" fill="none" stroke="url(#mystic-shimmer)" stroke-width="3" stroke-linecap="round" filter="url(#glow)" />
+
+          <!-- Spigots (Connectors) -->
+          <!-- Left side sources -->
+          <circle id="spigot-top" cx="97" cy="75" r="3.5" fill="#FFF" stroke="#D10D88" stroke-width="2" /> <!-- Active source -->
+          <circle id="spigot-mid" cx="177" cy="175" r="3.5" fill="#FFF" stroke="#D9C6CE" stroke-width="2" />
+          <circle id="spigot-bot" cx="137" cy="275" r="3.5" fill="#FFF" stroke="#D9C6CE" stroke-width="2" />
+          
+          <!-- Central node inputs -->
+          <circle cx="275" cy="163" r="3.5" fill="#FFF" stroke="#D9C6CE" stroke-width="2" />
+          <circle cx="275" cy="175" r="3.5" fill="#FFF" stroke="#D9C6CE" stroke-width="2" />
+          <circle cx="275" cy="187" r="3.5" fill="#FFF" stroke="#D9C6CE" stroke-width="2" />
+          
+          <!-- Central node output -->
+          <circle cx="365" cy="175" r="3.5" fill="#FFF" stroke="#D9C6CE" stroke-width="2" />
+          
+          <!-- Right side destination -->
+          <circle cx="463" cy="175" r="3.5" fill="#FFF" stroke="#D9C6CE" stroke-width="2" />
+        </svg>
+
+        <!-- Nodes -->
+        <!-- Source Node 1 (Top, Active) -->
+        <div id="node-top" class="intel-node intel-node-source active" style="left: 23px; top: 38px;">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+            <path d="M3 21h18v-2H3v2zm12-4V5H9v12h6zM5 17h2v-4H5v4zm12 0h2v-8h-2v8z" />
+          </svg>
+        </div>
+
+        <!-- Source Node 2 (Mid, Inactive) -->
+        <div id="node-mid" class="intel-node intel-node-source" style="left: 103px; top: 138px;">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+             <path d="M3 21h18v-2H3v2zm12-4V5H9v12h6zM5 17h2v-4H5v4zm12 0h2v-8h-2v8z" />
+          </svg>
+        </div>
+
+        <!-- Source Node 3 (Bottom, Inactive) -->
+        <div id="node-bot" class="intel-node intel-node-source" style="left: 63px; top: 238px;">
+           <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+             <path d="M3 21h18v-2H3v2zm12-4V5H9v12h6zM5 17h2v-4H5v4zm12 0h2v-8h-2v8z" />
+          </svg>
+        </div>
+
+        <!-- Central Node (LotusPetal) -->
+        <div class="intel-node intel-node-primary" style="left: 275px; top: 130px;">
+          <svg viewBox="0 0 66.54 66.54" width="36" height="36">
+            <path d="M33.273 0C51.648 0 66.545 14.897 66.545 33.273C66.545 51.648 51.648 66.545 33.273 66.545C14.897 66.545 0 51.648 0 33.273C0 14.897 14.897 0 33.273 0ZM33.273 1.613C15.788 1.614 1.614 15.788 1.613 33.273C1.613 50.757 15.788 64.931 33.273 64.932C50.757 64.932 64.932 50.757 64.932 33.273C64.931 15.788 50.757 1.613 33.273 1.613ZM35.737 3.496C36.293 2.826 36.946 2.229 37.161 2.77C37.581 3.832 40.846 7.713 45.448 10.834C54.089 15.83 51.689 30.358 48.791 33.007C48.765 33.046 48.726 33.085 48.687 33.111C50.719 32.469 52.83 32.089 54.889 32.089C57.38 32.089 59.779 32.639 61.903 33.938C62.166 34.108 64.775 35.839 63.818 36.232C63.637 36.305 63.372 36.462 63.04 36.696C63.109 36.879 63.071 37.029 62.862 37.114C62.461 37.275 61.641 37.853 60.608 38.763C59.106 40.209 57.337 42.189 55.768 44.506C55.094 45.67 54.246 46.631 53.28 47.421C48.094 52.825 38.081 51.817 34 49.717C34.317 51.129 34.499 52.556 34.499 53.96C34.499 56.438 33.948 58.85 32.65 60.975C32.53 61.175 31.486 62.74 30.829 63.046C30.276 63.715 29.628 64.311 29.413 63.772C29.013 62.771 26.025 59.184 21.759 56.148C21.55 55.999 21.338 55.851 21.123 55.705C21.017 55.643 20.913 55.579 20.81 55.515C17.88 53.684 16.288 50.721 15.579 47.539C15.1 45.392 15.024 43.147 15.211 41.085C15.529 37.576 16.607 34.596 17.766 33.531L17.766 33.519C17.78 33.495 17.798 33.473 17.819 33.454C17.589 33.526 17.357 33.594 17.125 33.659C17.109 33.664 17.093 33.667 17.077 33.672C15.694 34.055 14.283 34.313 12.882 34.408C12.855 34.41 12.829 34.412 12.802 34.414C12.706 34.42 12.611 34.425 12.516 34.43C12.466 34.432 12.416 34.434 12.366 34.437C12.303 34.439 12.24 34.441 12.177 34.443C12.084 34.446 11.991 34.448 11.898 34.449C11.861 34.45 11.825 34.45 11.789 34.45C11.75 34.45 11.711 34.452 11.672 34.452C11.615 34.452 11.557 34.45 11.5 34.449C11.448 34.449 11.396 34.448 11.345 34.447C11.264 34.446 11.184 34.443 11.104 34.44C11.025 34.438 10.946 34.434 10.867 34.43C10.784 34.426 10.702 34.421 10.619 34.416C10.578 34.413 10.538 34.41 10.497 34.407C10.392 34.4 10.287 34.392 10.183 34.382C10.152 34.379 10.121 34.375 10.091 34.372C9.304 34.293 8.53 34.153 7.774 33.944C7.745 33.936 7.716 33.928 7.688 33.92C7.569 33.886 7.451 33.85 7.334 33.813C7.325 33.811 7.316 33.809 7.307 33.806C6.388 33.514 5.499 33.118 4.657 32.603C4.628 32.584 4.569 32.542 4.488 32.487C4.424 32.444 4.348 32.391 4.262 32.331C3.61 31.872 2.435 30.975 2.547 30.523C2.566 30.437 2.631 30.368 2.752 30.32C2.933 30.248 3.196 30.088 3.527 29.855C3.458 29.672 3.499 29.524 3.712 29.44C4.103 29.284 4.887 28.729 5.879 27.858C7.396 26.405 9.201 24.396 10.803 22.033C11.479 20.866 12.33 19.901 13.301 19.11C18.479 13.727 28.456 14.72 32.541 16.811C32.472 16.502 32.412 16.192 32.357 15.882C32.316 15.649 32.278 15.416 32.245 15.183C32.145 14.471 32.083 13.759 32.065 13.052C32.057 12.771 32.056 12.49 32.063 12.211C32.115 9.93 32.642 7.718 33.804 5.748C33.839 5.688 33.873 5.626 33.91 5.566C33.916 5.558 33.923 5.546 33.933 5.532C34.128 5.224 35.026 3.91 35.648 3.546C35.678 3.527 35.708 3.51 35.737 3.496ZM33.61 20.329C33.064 21.51 31.937 23.334 29.608 25.939C29.134 26.467 28.59 26.991 27.992 27.507C27.89 27.608 27.788 27.71 27.682 27.811C25.772 29.618 23.139 31.339 20.213 32.576C21.204 32.849 23.302 33.788 26.868 36.992C29.189 39.066 31.474 42.431 32.935 46.211C33.484 45.03 34.616 43.206 36.948 40.597C37.472 40.011 38.081 39.428 38.756 38.857C40.675 37.005 43.363 35.238 46.352 33.971C45.359 33.694 43.259 32.751 39.688 29.56C37.367 27.485 35.069 24.111 33.61 20.329ZM48.419 33.183C48.416 33.187 48.414 33.19 48.411 33.194C48.442 33.184 48.472 33.174 48.503 33.164C48.475 33.172 48.447 33.178 48.419 33.183Z" fill="#FADAEE" />
+          </svg>
+        </div>
+
+        <!-- Output Node (Inactive) -->
+        <div class="intel-node intel-node-source" style="left: 463px; top: 138px;">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM8 15h8v2H8v-2zm0-4h8v2H8v-2z" />
+          </svg>
+        </div>
+
+      </div>
+
+      <!-- Text Content Column -->
+      <div class="intelligence-content">
+        <h2 class="text-header-section" style="margin-bottom: 24px;">Your Company's <span class="intel-title-gradient">Intelligence</span> Layer</h2>
+        <p class="text-body intel-body-text" style="color: #6b7280; font-size: 18px;">
+          Every company has knowledge scattered across past proposals, capability statements, resumes, and case studies.. LotusPetal AI turns that fragmented knowledge into a living layer AI can use across every pursuit, not a static content library.
+        </p>
+        
+        <button id="test-switch-btn" class="test-btn">Test Pipeline Switch</button>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    // Pipeline cycling logic
+    const paths = [
+      "M 97 75 L 153 75 Q 161 75 167 81 L 243 157 Q 249 163 257 163 L 285 163 C 320 163 320 175 355 175 L 463 175", // Top
+      "M 177 175 L 285 175 C 320 175 320 175.1 355 175 L 463 175", // Mid (0.1px deviation to fix SVG zero-height gradient bug)
+      "M 137 275 L 153 275 Q 161 275 167 269 L 243 193 Q 249 187 257 187 L 285 187 C 320 187 320 175 355 175 L 463 175" // Bottom
+    ];
+    
+    const nodes = [
+      document.getElementById('node-top'),
+      document.getElementById('node-mid'),
+      document.getElementById('node-bot')
+    ];
+    
+    const spigots = [
+      document.getElementById('spigot-top'),
+      document.getElementById('spigot-mid'),
+      document.getElementById('spigot-bot')
+    ];
+    
+    const activePath = document.getElementById('active-path');
+    let currentIndex = 0;
+
+    document.getElementById('test-switch-btn').addEventListener('click', () => {
+      // Deactivate current
+      nodes[currentIndex].classList.remove('active');
+      spigots[currentIndex].setAttribute('stroke', '#D9C6CE');
+
+      // Increment cycle
+      currentIndex = (currentIndex + 1) % 3;
+
+      // Activate new
+      nodes[currentIndex].classList.add('active');
+      spigots[currentIndex].setAttribute('stroke', '#D10D88');
+      activePath.setAttribute('d', paths[currentIndex]);
+    });
+  </script>
+</body>
+</html>
