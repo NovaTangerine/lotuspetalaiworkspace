@@ -2297,6 +2297,7 @@ body {
 }
 ._section_7drst_1 {
   width: 100%;
+  padding: 120px 20px;
 }
 ._container_7drst_5 {
   max-width: 760px;
@@ -12365,6 +12366,9 @@ body {
   padding: 1.5rem;
   backdrop-filter: blur(12px);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .petalos-detail-card.active {
@@ -12376,10 +12380,18 @@ body {
 }
 
 .petalos-detail-card p {
-  margin: 0;
+  margin: 0 auto;
+  max-width: 360px;
   font-size: 1.125rem;
   color: #FFCDEC;
   line-height: 1.5;
+}
+
+.petalos-detail-card h4 {
+  margin: 0 0 1.25rem 0;
+  font-size: 1.25rem;
+  color: #FFFFFF;
+  font-weight: 600;
 }
 
 /* Controls */
