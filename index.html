@@ -330,13 +330,20 @@
                   </div>
                 </div>
               </div>
-
-              <!-- Controls -->
-              <div class="petalos-controls">
-                <button class="petalos-btn" id="petalos-start-btn">START State</button>
-                <button class="petalos-btn" id="petalos-finish-btn">FINISH State</button>
-                <button class="petalos-btn primary" id="petalos-autoplay-btn">Play Lifecycle</button>
               </div>
+            </div>
+
+            <!-- Controls (Moved outside module) -->
+            <div class="petalos-controls">
+              <button class="petalos-btn" id="petalos-start-btn" aria-label="Start State">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="19 20 9 12 19 4 19 20"></polygon><rect x="5" y="4" width="2" height="16"></rect></svg>
+              </button>
+              <button class="petalos-btn primary" id="petalos-autoplay-btn" aria-label="Play Lifecycle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </button>
+              <button class="petalos-btn" id="petalos-finish-btn" aria-label="Finish State">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 4 15 12 5 20 5 4"></polygon><rect x="17" y="4" width="2" height="16"></rect></svg>
+              </button>
             </div>
           </section>
 
@@ -439,84 +446,8 @@
             </div>
           </div>
 
-
-          <!-- GovDash Sales Pipeline Section (Clean) -->
-          <section id="pipeline-section" class="pipeline-section">
-            <div class="pipeline-container">
-              <div class="pipeline-tabs-wrapper">
-                <nav class="pipeline-nav" aria-label="Pipeline stages">
-                  <button class="pipeline-tab active" data-tab="discover">
-                    <span class="pipeline-tab-indicator"></span>
-                    <span class="pipeline-tab-text">Discover</span>
-                  </button>
-                  <button class="pipeline-tab" data-tab="capture">
-                    <span class="pipeline-tab-indicator"></span>
-                    <span class="pipeline-tab-text">Capture</span>
-                  </button>
-                  <button class="pipeline-tab" data-tab="pricer">
-                    <span class="pipeline-tab-indicator"></span>
-                    <span class="pipeline-tab-text">Pricer</span>
-                  </button>
-                  <button class="pipeline-tab" data-tab="proposal">
-                    <span class="pipeline-tab-indicator"></span>
-                    <span class="pipeline-tab-text">Proposal</span>
-                  </button>
-                  <button class="pipeline-tab" data-tab="contracts">
-                    <span class="pipeline-tab-indicator"></span>
-                    <span class="pipeline-tab-text">Contracts</span>
-                  </button>
-                </nav>
-                <div class="pipeline-content-text">
-                  <!-- Discover Content -->
-                  <div class="pipeline-pane active" id="pane-discover">
-                    <h3 class="text-title-3">Discover</h3>
-                    <p class="text-body-3">Never miss an opportunity you should be pursuing. LotusPetal AI automatically
-                      scans SAM.gov, federal databases, and commercial RFP lists to find high-probability matches
-                      tailored to your capabilities.</p>
-                  </div>
-                  <!-- Capture Content -->
-                  <div class="pipeline-pane" id="pane-capture">
-                    <h3 class="text-title-3">Capture</h3>
-                    <p class="text-body-3">Turn insights into strategies. Manage teaming partners, track milestones, and
-                      orchestrate win themes seamlessly on a robust Kanban board built specifically for government
-                      contracting.</p>
-                  </div>
-                  <!-- Pricer Content -->
-                  <div class="pipeline-pane" id="pane-pricer">
-                    <h3 class="text-title-3">Pricer</h3>
-                    <p class="text-body-3">Quote with confidence. Build precise labor estimates, track indirect rates,
-                      and project margins with specialized GovCon pricing templates ensuring compliance with DCAA.</p>
-                  </div>
-                  <!-- Proposal Content -->
-                  <div class="pipeline-pane" id="pane-proposal">
-                    <h3 class="text-title-3">Proposal</h3>
-                    <p class="text-body-3">Write better proposals faster. Leverage secure AI to parse RFPs, generate
-                      compliance matrices, and draft narratives tailored to Section M criteria while referencing past
-                      performance securely.</p>
-                  </div>
-                  <!-- Contracts Content -->
-                  <div class="pipeline-pane" id="pane-contracts">
-                    <h3 class="text-title-3">Contracts</h3>
-                    <p class="text-body-3">Close the deal and track delivery. Seamlessly manage final contract
-                      execution, e-signatures, CDRLs, and compliance milestones without ever leaving the platform.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="pipeline-visual-wrapper">
-                <img src="./assets/mockup_discover.jpg" class="pipeline-img active" id="img-discover"
-                  alt="Discover UI Mockup">
-                <img src="./assets/mockup_capture_1788459974363.jpg" class="pipeline-img" id="img-capture"
-                  alt="Capture UI Mockup">
-                <img src="./assets/mockup_pricer_1788459985553.jpg" class="pipeline-img" id="img-pricer"
-                  alt="Pricer UI Mockup">
-                <img src="./assets/mockup_proposal_1788459995652.jpg" class="pipeline-img" id="img-proposal"
-                  alt="Proposal UI Mockup">
-                <img src="./assets/mockup_contracts_1788460055384.jpg" class="pipeline-img" id="img-contracts"
-                  alt="Contracts UI Mockup">
-              </div>
-              </div>
-            </div>
-          </section>
+          <!-- Spacing between Trusted Logos and Our Solution -->
+          <div style="height: 80px;"></div>
 
           <!-- Our Solution Interactive Section -->
           <div id="our-solution" class="_SolutionContainer_cqxrq_3">
@@ -1393,7 +1324,7 @@
         if (petalosAutoplayInterval) {
             clearInterval(petalosAutoplayInterval);
             petalosAutoplayInterval = null;
-            btnAutoplay.textContent = "Play Lifecycle";
+            btnAutoplay.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>';
         }
     }
 
@@ -1401,7 +1332,7 @@
         if (petalosAutoplayInterval) {
             stopPetalosAutoplay();
         } else {
-            btnAutoplay.textContent = "Pause Lifecycle";
+            btnAutoplay.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>';
             if (petalosCurrentIndex === petalosNodes.length - 1 || petalosCurrentIndex === -1) {
               setPetalosState(0);
             }
