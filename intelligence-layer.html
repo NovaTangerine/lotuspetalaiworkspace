@@ -63,24 +63,24 @@
           <path class="intel-line" d="M 355 175 L 463 175" fill="none" stroke="#D9C6CE" stroke-width="3" />
 
           <!-- Active Line (Rendered last to sit on top of inactive lines) -->
-          <path id="active-path" class="intel-line-active" d="M 97 75 L 153 75 Q 161 75 167 81 L 243 157 Q 249 163 257 163 L 285 163 C 320 163 320 175 355 175 L 463 175" fill="none" stroke="url(#mystic-shimmer)" stroke-width="3" stroke-linecap="round" filter="url(#glow)" />
+          <path id="active-path" class="intel-line-active" style="transition: stroke 1.2s ease-in-out;" d="M 97 75 L 153 75 Q 161 75 167 81 L 243 157 Q 249 163 257 163 L 285 163 C 320 163 320 175 355 175 L 463 175" fill="none" stroke="url(#mystic-shimmer)" stroke-width="3" stroke-linecap="round" filter="url(#glow)" />
 
           <!-- Spigots (Connectors) -->
           <!-- Left side sources -->
-          <circle id="spigot-top" cx="97" cy="75" r="3.5" fill="#FFF" stroke="var(--stream-primary)" stroke-width="2" /> <!-- Active source -->
-          <circle id="spigot-mid" cx="177" cy="175" r="3.5" fill="#FFF" stroke="#D9C6CE" stroke-width="2" />
-          <circle id="spigot-bot" cx="137" cy="275" r="3.5" fill="#FFF" stroke="#D9C6CE" stroke-width="2" />
+          <circle style="transition: stroke 1.2s ease-in-out;" id="spigot-top" cx="97" cy="75" r="3.5" fill="#FFF" stroke="var(--stream-primary)" stroke-width="2" /> <!-- Active source -->
+          <circle style="transition: stroke 1.2s ease-in-out;" id="spigot-mid" cx="177" cy="175" r="3.5" fill="#FFF" stroke="#D9C6CE" stroke-width="2" />
+          <circle style="transition: stroke 1.2s ease-in-out;" id="spigot-bot" cx="137" cy="275" r="3.5" fill="#FFF" stroke="#D9C6CE" stroke-width="2" />
           
           <!-- Central node inputs -->
-          <circle cx="275" cy="163" r="3.5" fill="#FFF" stroke="#D9C6CE" stroke-width="2" />
-          <circle cx="275" cy="175" r="3.5" fill="#FFF" stroke="#D9C6CE" stroke-width="2" />
-          <circle cx="275" cy="187" r="3.5" fill="#FFF" stroke="#D9C6CE" stroke-width="2" />
+          <circle style="transition: stroke 1.2s ease-in-out;" cx="275" cy="163" r="3.5" fill="#FFF" stroke="#D9C6CE" stroke-width="2" />
+          <circle style="transition: stroke 1.2s ease-in-out;" cx="275" cy="175" r="3.5" fill="#FFF" stroke="#D9C6CE" stroke-width="2" />
+          <circle style="transition: stroke 1.2s ease-in-out;" cx="275" cy="187" r="3.5" fill="#FFF" stroke="#D9C6CE" stroke-width="2" />
           
           <!-- Central node output -->
-          <circle cx="365" cy="175" r="3.5" fill="#FFF" stroke="#D9C6CE" stroke-width="2" />
+          <circle style="transition: stroke 1.2s ease-in-out;" cx="365" cy="175" r="3.5" fill="#FFF" stroke="#D9C6CE" stroke-width="2" />
           
           <!-- Right side destination -->
-          <circle cx="463" cy="175" r="3.5" fill="#FFF" stroke="#D9C6CE" stroke-width="2" />
+          <circle style="transition: stroke 1.2s ease-in-out;" cx="463" cy="175" r="3.5" fill="#FFF" stroke="#D9C6CE" stroke-width="2" />
         </svg>
 
         <!-- Nodes -->
@@ -150,7 +150,7 @@
     const activePath = document.getElementById('active-path');
     let currentIndex = 0;
 
-    document.getElementById('test-switch-btn').addEventListener('click', () => {
+    function switchPipeline() {
       // Deactivate current
       nodes[currentIndex].classList.remove('active');
       spigots[currentIndex].setAttribute('stroke', '#D9C6CE');
@@ -162,6 +162,16 @@
       nodes[currentIndex].classList.add('active');
       spigots[currentIndex].setAttribute('stroke', 'var(--stream-primary)');
       activePath.setAttribute('d', paths[currentIndex]);
+    }
+
+    // Auto-cycle every 2.5 seconds
+    let pipelineInterval = setInterval(switchPipeline, 4000);
+
+    // Keep manual button functional, and reset the timer when clicked
+    document.getElementById('test-switch-btn').addEventListener('click', () => {
+      clearInterval(pipelineInterval);
+      switchPipeline();
+      pipelineInterval = setInterval(switchPipeline, 4000);
     });
 
     // Theme Toggle Logic
