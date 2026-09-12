@@ -11,9 +11,17 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
-<body style="background-color: #ffffff; margin: 0; padding: 2rem; display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+<body style="background-color: #ffffff; margin: 0; min-height: 100vh; display: flex; flex-direction: column;">
 
-  <section class="intelligence-layer-section">
+  <!-- Dev Controls Header -->
+  <header style="width: 100%; padding: 12px 24px; display: flex; justify-content: flex-end; align-items: center; gap: 12px; border-bottom: 1px solid #f0f0f0; background-color: #fafafa; font-family: 'DM Sans', sans-serif; box-sizing: border-box;">
+    <span style="color: #9ca3af; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; margin-right: 8px; line-height: 1;">Component Testing</span>
+    <button id="test-switch-btn" class="test-btn" style="margin: 0; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #d1d5db; background: #fff; color: #374151; border-radius: 4px; cursor: pointer;">Test Pipeline Switch</button>
+    <button id="test-theme-btn" class="test-btn" style="margin: 0; display: inline-flex; align-items: center; justify-content: center; height: 32px; background: #D10D88; color: #fff; border: 1px solid #D10D88; border-radius: 4px; font-size: 0.85rem; padding: 0 16px; transition: all 0.2s ease; cursor: pointer;">Toggle Blue Pipeline</button>
+  </header>
+
+  <main style="flex: 1; display: flex; justify-content: center; align-items: center; padding: 2rem;">
+    <section class="intelligence-layer-section">
     <div class="intelligence-container">
       
       <!-- Visual Graphic Column -->
@@ -117,15 +125,13 @@
       <div class="intelligence-content">
         <h2 class="text-header-section" style="margin-bottom: 24px;">Your Company's <span class="intel-title-gradient">Intelligence</span> Layer</h2>
         <p class="text-body intel-body-text" style="color: #6b7280; font-size: 18px;">
-          Every company has knowledge scattered across past proposals, capability statements, resumes, and case studies.. LotusPetal AI turns that fragmented knowledge into a living layer AI can use across every pursuit, not a static content library.
+          LotusPetal AI turns knowledge fragmented across past proposals, capability statements, resumes, and case studies into a living layer PetalOS can use across every pursuit.
         </p>
-        
-        <button id="test-switch-btn" class="test-btn">Test Pipeline Switch</button>
-        <button id="test-theme-btn" class="test-btn" style="margin-left: 10px; background: #D10D88; color: #fff; border-color: #D10D88;">Toggle Blue Pipeline</button>
       </div>
 
     </div>
   </section>
+  </main>
 
   <script>
     // Pipeline cycling logic

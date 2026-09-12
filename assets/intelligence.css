@@ -157,12 +157,12 @@
   left: 320px;
   transform: translate(-50%, 0px);
   background-color: #EFEFEF;
-  color: #666666;
+  color: #454545;
   animation: float-center 6s ease-in-out infinite 0.5s;
 }
 
 .intel-shimmer-text {
-  background: linear-gradient(90deg, #666666 0%, #b3b3b3 50%, #666666 100%);
+  background: linear-gradient(90deg, #454545 0%, #b3b3b3 50%, #454545 100%);
   background-size: 200% auto;
   color: transparent;
   -webkit-background-clip: text;
