@@ -12338,3 +12338,6 @@ body {
   }
 }
 
+.branded-text {
+  color: var(--color-primary);
+}
