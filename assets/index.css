@@ -12341,3 +12341,13 @@ body {
 .branded-text {
   color: var(--color-primary);
 }
+
+.hero-petalos-text {
+  background: linear-gradient(180deg, #FDE2F3 0%, #D4268F 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-flex;
+  align-items: flex-start;
+}
