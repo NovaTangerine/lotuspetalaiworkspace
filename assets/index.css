@@ -2093,6 +2093,7 @@ body {
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 .hero-right:before {
   content: "";
