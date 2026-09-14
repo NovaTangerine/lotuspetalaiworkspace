@@ -67,6 +67,16 @@
 <body>
   <div id="root">
     <div class="App">
+      <!-- Dev Controls Header -->
+      <header style="width: 100%; padding: 12px 24px; display: flex; justify-content: flex-end; align-items: center; gap: 12px; border-bottom: 1px solid #f0f0f0; background-color: #fafafa; font-family: 'DM Sans', sans-serif; box-sizing: border-box; position: relative; z-index: 9999;">
+        <span style="color: #9ca3af; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; margin-right: 8px; line-height: 1;">Hero Testing</span>
+        <button id="test-headline-1" class="test-btn" style="margin: 0; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #D10D88; background: #D10D88; color: #fff; border-radius: 4px; cursor: pointer; transition: all 0.2s ease;">V1</button>
+        <button id="test-headline-2" class="test-btn" style="margin: 0; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #d1d5db; background: #fff; color: #374151; border-radius: 4px; cursor: pointer; transition: all 0.2s ease;">V2</button>
+        <button id="test-headline-3" class="test-btn" style="margin: 0; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #d1d5db; background: #fff; color: #374151; border-radius: 4px; cursor: pointer; transition: all 0.2s ease;">V3</button>
+        <button id="test-headline-4" class="test-btn" style="margin: 0; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #d1d5db; background: #fff; color: #374151; border-radius: 4px; cursor: pointer; transition: all 0.2s ease;">V4</button>
+        <button id="test-headline-5" class="test-btn" style="margin: 0; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #d1d5db; background: #fff; color: #374151; border-radius: 4px; cursor: pointer; transition: all 0.2s ease;">V5</button>
+      </header>
+
       <!-- Announcement Banner -->
       <div class="banner">
         <p>Rohit Anabheri Debuts The Intelligence Dividend at Ai4 2026. <a
@@ -135,11 +145,40 @@
           <section class="hero">
             <div class="hero-left">
               <div class="hero-text-block">
-                <h1 class="hero-heading"><span class="hero-petalos-text">PetalOS<svg viewBox="0 0 22.24 11.26" class="petalos-tm" xmlns="http://www.w3.org/2000/svg"><path d="M0.000 1.696C0.000 1.696 0.000 0.000 0.000 0.000C0.000 0.000 7.840 0.000 7.840 0.000C7.840 0.000 7.840 1.696 7.840 1.696C7.840 1.696 4.992 1.696 4.992 1.696C4.992 1.696 4.992 11.264 4.992 11.264C4.992 11.264 2.848 11.264 2.848 11.264C2.848 11.264 2.848 1.696 2.848 1.696C2.848 1.696 0.000 1.696 0.000 1.696ZM9.568 11.264C9.568 11.264 9.568 0.000 9.568 0.000C9.568 0.000 12.288 0.000 12.288 0.000C12.288 0.000 15.904 8.736 15.904 8.736C15.904 8.736 19.680 0.000 19.680 0.000C19.680 0.000 22.240 0.000 22.240 0.000C22.240 0.000 22.240 11.264 22.240 11.264C22.240 11.264 20.256 11.264 20.256 11.264C20.256 11.264 20.256 2.880 20.256 2.880C20.256 2.880 16.608 11.264 16.608 11.264C16.608 11.264 15.072 11.264 15.072 11.264C15.072 11.264 11.488 2.816 11.488 2.816C11.488 2.816 11.488 11.264 11.488 11.264C11.488 11.264 9.568 11.264 9.568 11.264Z" fillRule="nonzero" fill="#D4268F" /></svg></span><br><span style="font-size: 72px; line-height: 1; display: inline-block; margin-top: 10px;">Pursuit Intelligence for Government Contracts.</span></h1>
-                <h2 class="text-header-subsection" style="color: var(--color-gray-subtext);">Discover the Right
-                  Opportunities. Generate Proposals That Win.</h2>
-                <p class="text-body hero-description">Proposal intelligence forged from what wins. Secured without
-                  exception.</p>
+                <!-- V1 -->
+                <div id="hero-v1">
+                  <h1 class="hero-heading">Pursuit Intelligence for Government Contracts.</h1>
+                  <h2 class="text-header-subsection" style="color: var(--color-gray-subtext);">Discover the Right Opportunities. Generate Proposals That Win.</h2>
+                  <p class="text-body hero-description">Proposal intelligence forged from what wins. Secured without exception.</p>
+                </div>
+
+                <!-- V2 -->
+                <div id="hero-v2" style="display: none;">
+                  <h1 class="hero-heading"><span class="hero-petalos-text">PetalOS<svg viewBox="0 0 22.24 11.26" class="petalos-tm" xmlns="http://www.w3.org/2000/svg"><path d="M0.000 1.696C0.000 1.696 0.000 0.000 0.000 0.000C0.000 0.000 7.840 0.000 7.840 0.000C7.840 0.000 7.840 1.696 7.840 1.696C7.840 1.696 4.992 1.696 4.992 1.696C4.992 1.696 4.992 11.264 4.992 11.264C4.992 11.264 2.848 11.264 2.848 11.264C2.848 11.264 2.848 1.696 2.848 1.696C2.848 1.696 0.000 1.696 0.000 1.696ZM9.568 11.264C9.568 11.264 9.568 0.000 9.568 0.000C9.568 0.000 12.288 0.000 12.288 0.000C12.288 0.000 15.904 8.736 15.904 8.736C15.904 8.736 19.680 0.000 19.680 0.000C19.680 0.000 22.240 0.000 22.240 0.000C22.240 0.000 22.240 11.264 22.240 11.264C22.240 11.264 20.256 11.264 20.256 11.264C20.256 11.264 20.256 2.880 20.256 2.880C20.256 2.880 16.608 11.264 16.608 11.264C16.608 11.264 15.072 11.264 15.072 11.264C15.072 11.264 11.488 2.816 11.488 2.816C11.488 2.816 11.488 11.264 11.488 11.264C11.488 11.264 9.568 11.264 9.568 11.264Z" fillRule="nonzero" fill="#D4268F" /></svg></span><br><span style="font-size: 72px; line-height: 1; display: inline-block; margin-top: 10px;">Pursuit Intelligence for Government Contracts.</span></h1>
+                  <h2 class="text-header-subsection" style="color: var(--color-gray-subtext);">Discover the Right Opportunities. Generate Proposals That Win.</h2>
+                  <p class="text-body hero-description">Proposal intelligence forged from what wins. Secured without exception.</p>
+                </div>
+
+                <!-- V3 -->
+                <div id="hero-v3" style="display: none;">
+                  <h1 class="hero-heading"><span class="hero-petalos-text">PetalOS<svg viewBox="0 0 22.24 11.26" class="petalos-tm" xmlns="http://www.w3.org/2000/svg"><path d="M0.000 1.696C0.000 1.696 0.000 0.000 0.000 0.000C0.000 0.000 7.840 0.000 7.840 0.000C7.840 0.000 7.840 1.696 7.840 1.696C7.840 1.696 4.992 1.696 4.992 1.696C4.992 1.696 4.992 11.264 4.992 11.264C4.992 11.264 2.848 11.264 2.848 11.264C2.848 11.264 2.848 1.696 2.848 1.696C2.848 1.696 0.000 1.696 0.000 1.696ZM9.568 11.264C9.568 11.264 9.568 0.000 9.568 0.000C9.568 0.000 12.288 0.000 12.288 0.000C12.288 0.000 15.904 8.736 15.904 8.736C15.904 8.736 19.680 0.000 19.680 0.000C19.680 0.000 22.240 0.000 22.240 0.000C22.240 0.000 22.240 11.264 22.240 11.264C22.240 11.264 20.256 11.264 20.256 11.264C20.256 11.264 20.256 2.880 20.256 2.880C20.256 2.880 16.608 11.264 16.608 11.264C16.608 11.264 15.072 11.264 15.072 11.264C15.072 11.264 11.488 2.816 11.488 2.816C11.488 2.816 11.488 11.264 11.488 11.264C11.488 11.264 9.568 11.264 9.568 11.264Z" fillRule="nonzero" fill="#D4268F" /></svg></span><br><span style="font-size: 72px; line-height: 1; display: inline-block; margin-top: 10px;">The AI Co-Pilot for GovCon Teams.</span></h1>
+                  <p class="text-body hero-description">Proposal intelligence forged from what wins. Secured without exception.</p>
+                </div>
+
+                <!-- V4 -->
+                <div id="hero-v4" style="display: none;">
+                  <h1 class="hero-heading"><span class="hero-petalos-text">PetalOS<svg viewBox="0 0 22.24 11.26" class="petalos-tm" xmlns="http://www.w3.org/2000/svg"><path d="M0.000 1.696C0.000 1.696 0.000 0.000 0.000 0.000C0.000 0.000 7.840 0.000 7.840 0.000C7.840 0.000 7.840 1.696 7.840 1.696C7.840 1.696 4.992 1.696 4.992 1.696C4.992 1.696 4.992 11.264 4.992 11.264C4.992 11.264 2.848 11.264 2.848 11.264C2.848 11.264 2.848 1.696 2.848 1.696C2.848 1.696 0.000 1.696 0.000 1.696ZM9.568 11.264C9.568 11.264 9.568 0.000 9.568 0.000C9.568 0.000 12.288 0.000 12.288 0.000C12.288 0.000 15.904 8.736 15.904 8.736C15.904 8.736 19.680 0.000 19.680 0.000C19.680 0.000 22.240 0.000 22.240 0.000C22.240 0.000 22.240 11.264 22.240 11.264C22.240 11.264 20.256 11.264 20.256 11.264C20.256 11.264 20.256 2.880 20.256 2.880C20.256 2.880 16.608 11.264 16.608 11.264C16.608 11.264 15.072 11.264 15.072 11.264C15.072 11.264 11.488 2.816 11.488 2.816C11.488 2.816 11.488 11.264 11.488 11.264C11.488 11.264 9.568 11.264 9.568 11.264Z" fillRule="nonzero" fill="#D4268F" /></svg></span><br><span style="font-size: 72px; line-height: 1; display: inline-block; margin-top: 10px;">Pursuit Intelligence for Government Contracts.</span></h1>
+                  <p class="text-body hero-description">Discover the Right Opportunities. Generate Proposals That Win.</p>
+                </div>
+
+                <!-- V5 -->
+                <div id="hero-v5" style="display: none;">
+                  <h1 class="hero-heading" style="font-size: 72px; line-height: 1; margin-bottom: 8px; display: inline-flex; align-items: flex-start;">
+                    PetalOS<svg viewBox="0 0 22.24 11.26" class="petalos-tm" xmlns="http://www.w3.org/2000/svg"><path d="M0.000 1.696C0.000 1.696 0.000 0.000 0.000 0.000C0.000 0.000 7.840 0.000 7.840 0.000C7.840 0.000 7.840 1.696 7.840 1.696C7.840 1.696 4.992 1.696 4.992 1.696C4.992 1.696 4.992 11.264 4.992 11.264C4.992 11.264 2.848 11.264 2.848 11.264C2.848 11.264 2.848 1.696 2.848 1.696C2.848 1.696 0.000 1.696 0.000 1.696ZM9.568 11.264C9.568 11.264 9.568 0.000 9.568 0.000C9.568 0.000 12.288 0.000 12.288 0.000C12.288 0.000 15.904 8.736 15.904 8.736C15.904 8.736 19.680 0.000 19.680 0.000C19.680 0.000 22.240 0.000 22.240 0.000C22.240 0.000 22.240 11.264 22.240 11.264C22.240 11.264 20.256 11.264 20.256 11.264C20.256 11.264 20.256 2.880 20.256 2.880C20.256 2.880 16.608 11.264 16.608 11.264C16.608 11.264 15.072 11.264 15.072 11.264C15.072 11.264 11.488 2.816 11.488 2.816C11.488 2.816 11.488 11.264 11.488 11.264C11.488 11.264 9.568 11.264 9.568 11.264Z" fillRule="nonzero" fill="#000" /></svg>
+                  </h1>
+                  <h2 class="text-header-subsection" style="color: var(--color-gray-subtext); margin-bottom: 12px;">Pursuit Intelligence for Government Contracts.</h2>
+                  <p class="text-body hero-description">Discover the Right Opportunities. Generate Proposals That Win.</p>
+                </div>
               </div>
 
               <div class="hero-cta">
@@ -1339,6 +1378,72 @@
         }
     });
 
+    // Hero Variant Toggle Logic
+    const btnV1 = document.getElementById('test-headline-1');
+    const btnV2 = document.getElementById('test-headline-2');
+    const btnV3 = document.getElementById('test-headline-3');
+    const btnV4 = document.getElementById('test-headline-4');
+    const btnV5 = document.getElementById('test-headline-5');
+    const heroV1 = document.getElementById('hero-v1');
+    const heroV2 = document.getElementById('hero-v2');
+    const heroV3 = document.getElementById('hero-v3');
+    const heroV4 = document.getElementById('hero-v4');
+    const heroV5 = document.getElementById('hero-v5');
+
+    function resetHeroTestingBtns() {
+      [btnV1, btnV2, btnV3, btnV4, btnV5].forEach(btn => {
+        if (!btn) return;
+        btn.style.background = '#fff';
+        btn.style.borderColor = '#d1d5db';
+        btn.style.color = '#374151';
+      });
+      [heroV1, heroV2, heroV3, heroV4, heroV5].forEach(hero => {
+        if (!hero) return;
+        hero.style.display = 'none';
+      });
+    }
+
+    if (btnV1 && btnV2 && btnV3 && btnV4 && btnV5 && heroV1 && heroV2 && heroV3 && heroV4 && heroV5) {
+      btnV1.addEventListener('click', () => {
+        resetHeroTestingBtns();
+        heroV1.style.display = 'block';
+        btnV1.style.background = '#D10D88';
+        btnV1.style.borderColor = '#D10D88';
+        btnV1.style.color = '#fff';
+      });
+
+      btnV2.addEventListener('click', () => {
+        resetHeroTestingBtns();
+        heroV2.style.display = 'block';
+        btnV2.style.background = '#D10D88';
+        btnV2.style.borderColor = '#D10D88';
+        btnV2.style.color = '#fff';
+      });
+
+      btnV3.addEventListener('click', () => {
+        resetHeroTestingBtns();
+        heroV3.style.display = 'block';
+        btnV3.style.background = '#D10D88';
+        btnV3.style.borderColor = '#D10D88';
+        btnV3.style.color = '#fff';
+      });
+
+      btnV4.addEventListener('click', () => {
+        resetHeroTestingBtns();
+        heroV4.style.display = 'block';
+        btnV4.style.background = '#D10D88';
+        btnV4.style.borderColor = '#D10D88';
+        btnV4.style.color = '#fff';
+      });
+
+      btnV5.addEventListener('click', () => {
+        resetHeroTestingBtns();
+        heroV5.style.display = 'block';
+        btnV5.style.background = '#D10D88';
+        btnV5.style.borderColor = '#D10D88';
+        btnV5.style.color = '#fff';
+      });
+    }
   </script>
 </body>
 </html>
