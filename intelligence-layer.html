@@ -43,7 +43,7 @@
               <stop offset="0%" stop-color="var(--stream-primary)" />
               <stop offset="35%" stop-color="var(--stream-primary)" />
               <stop offset="45%" stop-color="var(--stream-light)" />
-              <stop offset="50%" stop-color="#FFFFFF" />
+              <stop offset="50%" stop-color="var(--stream-core)" />
               <stop offset="55%" stop-color="var(--stream-light)" />
               <stop offset="65%" stop-color="var(--stream-primary)" />
               <stop offset="100%" stop-color="var(--stream-primary)" />
@@ -57,6 +57,16 @@
                 <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
+
+            <linearGradient id="energy-fade-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="white" stop-opacity="0.15" />
+              <stop offset="60%" stop-color="white" stop-opacity="0.75" />
+              <stop offset="100%" stop-color="white" stop-opacity="1" />
+            </linearGradient>
+            
+            <mask id="energy-fade">
+              <rect x="0" y="0" width="100%" height="100%" fill="url(#energy-fade-gradient)" />
+            </mask>
           </defs>
           <!-- Top Line (Inactive Background) -->
           <path class="intel-line" d="M 97 75 L 153 75 Q 161 75 167 81 L 243 157 Q 249 163 257 163 L 285 163" fill="none" stroke="#D9C6CE" stroke-width="3" />
@@ -71,7 +81,7 @@
           <path class="intel-line" d="M 355 175 L 463 175" fill="none" stroke="#D9C6CE" stroke-width="3" />
 
           <!-- Active Line (Rendered last to sit on top of inactive lines) -->
-          <path id="active-path" class="intel-line-active" style="transition: stroke 1.2s ease-in-out;" d="M 97 75 L 153 75 Q 161 75 167 81 L 243 157 Q 249 163 257 163 L 285 163 C 320 163 320 175 355 175 L 463 175" fill="none" stroke="url(#mystic-shimmer)" stroke-width="3" stroke-linecap="round" filter="url(#glow)" />
+          <path id="active-path" class="intel-line-active" style="transition: stroke 1.2s ease-in-out;" d="M 97 75 L 153 75 Q 161 75 167 81 L 243 157 Q 249 163 257 163 L 285 163 C 320 163 320 175 355 175 L 463 175" fill="none" stroke="url(#mystic-shimmer)" stroke-width="3" stroke-linecap="round" filter="url(#glow)" mask="url(#energy-fade)" />
 
           <!-- Spigots (Connectors) -->
           <!-- Left side sources -->

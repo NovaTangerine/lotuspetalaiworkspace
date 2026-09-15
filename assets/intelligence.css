@@ -8,6 +8,7 @@
   --stream-primary: #D10D88;
   --stream-light: #FFA0DC;
   --stream-bright: #FF66C4;
+  --stream-core: #fbcfe8; /* gentle pink */
   --stream-glow: rgba(209, 13, 136, 0.4);
   --stream-glow-strong: rgba(209, 13, 136, 0.6);
   --stream-glow-zero: rgba(209, 13, 136, 0);
@@ -17,6 +18,7 @@
   --stream-primary: #04c8c8;
   --stream-light: #90fff6;
   --stream-bright: #50f8f0;
+  --stream-core: #cffafe; /* gentle cyan */
   --stream-glow: rgba(4, 200, 200, 0.4);
   --stream-glow-strong: rgba(4, 200, 200, 0.6);
   --stream-glow-zero: rgba(4, 200, 200, 0);
