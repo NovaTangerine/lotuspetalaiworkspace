@@ -16,11 +16,7 @@
   <!-- Dev Controls Header -->
   <header style="width: 100%; padding: 12px 24px; display: flex; justify-content: flex-end; align-items: center; gap: 12px; border-bottom: 1px solid #f0f0f0; background-color: #fafafa; font-family: 'DM Sans', sans-serif; box-sizing: border-box;">
     <span style="color: #9ca3af; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; margin-right: 8px; line-height: 1;">Component Testing</span>
-    <label style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: #374151; cursor: pointer;">
-      <input type="checkbox" id="auto-loop-checkbox" checked style="cursor: pointer;"> Auto Loop
-    </label>
     <button id="test-theme-btn" class="test-btn" style="margin: 0; display: inline-flex; align-items: center; justify-content: center; height: 32px; background: #D10D88; color: #fff; border: 1px solid #D10D88; border-radius: 4px; font-size: 0.85rem; padding: 0 16px; transition: all 0.2s ease; cursor: pointer;">Toggle Blue Pipeline</button>
-    <button id="trigger-state-btn" class="test-btn" style="margin: 0; display: inline-flex; align-items: center; justify-content: center; height: 32px; background: #374151; color: #fff; border: 1px solid #374151; border-radius: 4px; font-size: 0.85rem; padding: 0 16px; transition: all 0.2s ease; cursor: pointer;">Toggle State</button>
   </header>
 
   <main style="flex: 1; display: flex; justify-content: center; align-items: center; padding: 2rem;">
@@ -32,20 +28,14 @@
         
         <!-- Static Background Rings -->
         <div class="static-rings">
-          <div class="static-ring" style="width: 100px; height: 100px; opacity: 1;"></div>
-          <div class="static-ring" style="width: 190px; height: 190px; opacity: 0.8;"></div>
-          <div class="static-ring" style="width: 280px; height: 280px; opacity: 0.5;"></div>
-          <div class="static-ring" style="width: 370px; height: 370px; opacity: 0.3;"></div>
-          <div class="static-ring" style="width: 460px; height: 460px; opacity: 0.15;"></div>
+          <div class="static-ring" style="width: 100px; height: 100px;"></div>
+          <div class="static-ring" style="width: 190px; height: 190px;"></div>
+          <div class="static-ring" style="width: 280px; height: 280px;"></div>
+          <div class="static-ring" style="width: 370px; height: 370px;"></div>
+          <div class="static-ring" style="width: 460px; height: 460px;"></div>
         </div>
-
-        <!-- Sonar Rings Background -->
-        <div class="sonar-rings">
-          <div class="ring ring-1"></div>
-          <div class="ring ring-2"></div>
-          <div class="ring ring-3"></div>
-        </div>
-
+        <!-- Sonar Sweep Radar -->
+        <div class="sonar-sweep"></div>
         <!-- Opportunities -->
         <div class="opp-node opp-node-hazy opp-pos-1">
           <i class="ph ph-file-text"></i>
@@ -87,34 +77,8 @@
 
   <script>
     const container = document.querySelector('.opportunity-layer-section');
-    const toggleBtn = document.getElementById('trigger-state-btn');
-    const loopCheckbox = document.getElementById('auto-loop-checkbox');
-    let loopInterval;
-    
-    function toggleState() {
-      container.classList.toggle('state-jacked-in');
-    }
-
-    function manageLoop() {
-      if (loopCheckbox.checked) {
-        loopInterval = setInterval(toggleState, 3000);
-      } else {
-        clearInterval(loopInterval);
-      }
-    }
-
-    toggleBtn.addEventListener('click', () => {
-      toggleState();
-      if (loopCheckbox.checked) {
-        clearInterval(loopInterval);
-        setTimeout(manageLoop, 100);
-      }
-    });
-
-    loopCheckbox.addEventListener('change', manageLoop);
-    manageLoop();
-
     const themeBtn = document.getElementById('test-theme-btn');
+    
     themeBtn.addEventListener('click', () => {
       container.classList.toggle('theme-blue');
       if (container.classList.contains('theme-blue')) {

@@ -289,50 +289,11 @@
   overflow: hidden;
 }
 
-.state-jacked-in .opportunity-graphic {
+.opportunity-graphic {
   /* No background color */
 }
 
-.sonar-rings {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.ring {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid #cbd5e1;
-  opacity: 0;
-  animation: sonarPing 4s infinite linear;
-}
-
-.state-jacked-in .ring {
-  border-color: #fbcfe8; /* pinkish rings */
-  animation: sonarPingJackedIn 3s infinite linear;
-}
-
-.ring-1 { width: 100px; height: 100px; animation-delay: 0s; }
-.ring-2 { width: 250px; height: 250px; animation-delay: 1.3s; }
-.ring-3 { width: 400px; height: 400px; animation-delay: 2.6s; }
-
-@keyframes sonarPing {
-  0% { transform: scale(0.5); opacity: 0; }
-  20% { opacity: 0.5; }
-  100% { transform: scale(1.5); opacity: 0; }
-}
-
-@keyframes sonarPingJackedIn {
-  0% { transform: scale(0.5); opacity: 0; }
-  20% { opacity: 0.8; }
-  100% { transform: scale(1.5); opacity: 0; }
-}
 
 .opp-node {
   position: absolute;
@@ -365,26 +326,26 @@
   transform: scale(0.9);
 }
 
-.state-jacked-in .opp-node {
+.opp-node {
   filter: blur(0px);
   opacity: 1;
   transform: scale(1);
 }
 
-.state-jacked-in .opp-label {
+.opp-label {
   opacity: 1;
 }
 
 /* Specific node styling when jacked in */
-.state-jacked-in .opp-node:nth-child(2) i, 
-.state-jacked-in .opp-node:nth-child(4) i {
+.opp-node:nth-child(2) i, 
+.opp-node:nth-child(4) i {
   color: #d1d5db; /* Irrelevant / low match fade out slightly */
 }
-.state-jacked-in .opp-node:nth-child(3) i {
+.opp-node:nth-child(3) i {
   color: #10b981; /* High match turns green/branded */
 }
-.state-jacked-in .opp-node:nth-child(2) .opp-label, 
-.state-jacked-in .opp-node:nth-child(4) .opp-label {
+.opp-node:nth-child(2) .opp-label, 
+.opp-node:nth-child(4) .opp-label {
   color: #d1d5db;
 }
 
@@ -404,11 +365,11 @@
   display: flex;
 }
 
-.state-jacked-in .central-sonar-node {
+.central-sonar-node {
   box-shadow: 0 0 20px 5px rgba(209, 13, 136, 0.3);
 }
 
-.state-jacked-in .central-sonar-node svg path {
+.central-sonar-node svg path {
   fill: #D10D88; /* electrify logo */
 }
 
@@ -432,21 +393,59 @@
 .static-ring {
   position: absolute;
   border-radius: 50%;
-  border: 2px solid var(--stream-primary);
+  border: 2px solid #cbd5e1;
+  transition: border-color 0.8s ease;
 }
 
-/* Theme Blue Logic for Opportunity Layer */
-.theme-blue.state-jacked-in .opportunity-graphic {
+@keyframes staticRingPulse {
+  0% { border-color: #cbd5e1; box-shadow: none; transform: scale(1); border-width: 2px; }
+  10% { border-color: #D10D88; box-shadow: 0 0 14px rgba(209, 13, 136, 0.5); transform: scale(1.015); border-width: 2.5px; }
+  50% { border-color: #cbd5e1; box-shadow: none; transform: scale(1); border-width: 2px; }
+  100% { border-color: #cbd5e1; border-width: 2px; }
+}
+
+.static-ring:nth-child(1) { animation: staticRingPulse 1.35s infinite linear 0.3s; }
+.static-ring:nth-child(2) { animation: staticRingPulse 1.35s infinite linear 0.57s; }
+.static-ring:nth-child(3) { animation: staticRingPulse 1.35s infinite linear 0.84s; }
+.static-ring:nth-child(4) { animation: staticRingPulse 1.35s infinite linear 1.11s; }
+.static-ring:nth-child(5) { animation: staticRingPulse 1.35s infinite linear 1.38s; }
+
+.sonar-sweep {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 460px; /* same as the largest ring */
+  height: 460px;
+  margin-top: -230px;
+  margin-left: -230px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(209, 13, 136, 0.1) 340deg, rgba(209, 13, 136, 0.5) 360deg);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sonar-sweep {
+  opacity: 1;
+  animation: radarSweep 3s infinite linear;
+}
+
+@keyframes radarSweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.theme-blue.opportunity-graphic {
   background-color: #ecfeff; /* cyan background when jacked in */
 }
-.theme-blue.state-jacked-in .ring {
-  border-color: #a5f3fc; /* cyan rings */
-}
-.theme-blue.state-jacked-in .central-sonar-node {
+.theme-blue.central-sonar-node {
   box-shadow: 0 0 20px 5px rgba(4, 200, 200, 0.3);
 }
-.theme-blue.state-jacked-in .central-sonar-node svg path {
+.theme-blue.central-sonar-node svg path {
   fill: #04c8c8; /* electrify logo blue */
+}
+.theme-blue.sonar-sweep {
+  background: conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(4, 200, 200, 0.1) 340deg, rgba(4, 200, 200, 0.5) 360deg);
 }
 .theme-blue .intel-title-gradient {
   background: linear-gradient(135deg, #04c8c8 0%, #a5f3fc 50%, #04c8c8 100%);
