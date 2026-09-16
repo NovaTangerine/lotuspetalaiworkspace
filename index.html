@@ -231,7 +231,7 @@
 
                 <!-- V11 -->
                 <div id="hero-v11" style="display: none; padding-bottom: 4px;">
-                  <h1 class="hero-heading" style="font-size: 132px; line-height: 1; margin-bottom: -6px; display: inline-flex; align-items: flex-start; letter-spacing: -0.04em;">
+                  <h1 class="hero-heading" style="font-size: 132px; line-height: 1; margin-bottom: -6px; display: inline-flex; align-items: flex-start; letter-spacing: -.025em;">
                     <span class="petal-text-span" style="font-weight: 600;">Petal</span>OS<svg viewBox="0 0 22.24 11.26" class="petalos-tm" xmlns="http://www.w3.org/2000/svg"><path d="M0.000 1.696C0.000 1.696 0.000 0.000 0.000 0.000C0.000 0.000 7.840 0.000 7.840 0.000C7.840 0.000 7.840 1.696 7.840 1.696C7.840 1.696 4.992 1.696 4.992 1.696C4.992 1.696 4.992 11.264 4.992 11.264C4.992 11.264 2.848 11.264 2.848 11.264C2.848 11.264 2.848 1.696 2.848 1.696C2.848 1.696 0.000 1.696 0.000 1.696ZM9.568 11.264C9.568 11.264 9.568 0.000 9.568 0.000C9.568 0.000 12.288 0.000 12.288 0.000C12.288 0.000 15.904 8.736 15.904 8.736C15.904 8.736 19.680 0.000 19.680 0.000C19.680 0.000 22.240 0.000 22.240 0.000C22.240 0.000 22.240 11.264 22.240 11.264C22.240 11.264 20.256 11.264 20.256 11.264C20.256 11.264 20.256 2.880 20.256 2.880C20.256 2.880 16.608 11.264 16.608 11.264C16.608 11.264 15.072 11.264 15.072 11.264C15.072 11.264 11.488 2.816 11.488 2.816C11.488 2.816 11.488 11.264 11.488 11.264C11.488 11.264 9.568 11.264 9.568 11.264Z" fillRule="nonzero" fill="#057c80" /></svg>
                   </h1>
                   <h2 class="text-header-subsection" style="margin-top: -12px; color: #666; margin-bottom: 1px; font-size: 36px; font-weight: 400;">AI Pursuit Intelligence for <span style="background: linear-gradient(128.77deg, #0bc 0%, #057c80 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent; font-weight: 500;">Government Contracts.</span></h2>
@@ -250,10 +250,20 @@
                   transition: color 0.3s ease;
                 }
                 .hero-cta:has(a:hover) ~ #hero-v11-desc {
-                  color: #D10D88 !important;
+                  background: linear-gradient(90deg, #D10D88 0%, #ff80d0 50%, #D10D88 100%);
+                  background-size: 200% auto;
+                  -webkit-background-clip: text;
+                  background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                  color: transparent !important;
+                  animation: hero-v11-shimmer 2.5s linear infinite;
+                }
+                @keyframes hero-v11-shimmer {
+                  0% { background-position: 200% center; }
+                  100% { background-position: -200% center; }
                 }
               </style>
-              <p id="hero-v11-desc" class="text-body hero-description" style="display: none; margin-top: 36px; margin-bottom: 0;">Discover the Right Opportunities.<br>Generate Proposals That Win.</p>
+              <p id="hero-v11-desc" class="text-body hero-description" style="display: none; margin-top: 48px; margin-bottom: 0;">Discover the Right Opportunities.<br>Generate Proposals That Win.</p>
               <div class="hero-trust-badges">
                 <div class="hero-trust-divider"></div>
                 <div class="hero-trust-content">
