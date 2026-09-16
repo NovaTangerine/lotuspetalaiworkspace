@@ -1489,6 +1489,9 @@
     let v10ScrollListener = null;
     let v11ScrollListener = null;
 
+    const petalosModuleTitle = document.querySelector('.petalos-title');
+    const petalosLifecycleSection = document.getElementById('petalos-lifecycle');
+
     function resetHeroTestingBtns() {
       [btnV1, btnV2, btnV3, btnV4, btnV5, btnV6, btnV7, btnV8, btnV9, btnV10, btnV11].forEach(btn => {
         if (!btn) return;
@@ -1515,6 +1518,14 @@
       if (v11ScrollListener) {
         window.removeEventListener('scroll', v11ScrollListener);
         v11ScrollListener = null;
+      }
+      if (petalosModuleTitle) {
+        petalosModuleTitle.style.display = '';
+        petalosModuleTitle.style.visibility = '';
+      }
+      if (petalosLifecycleSection) {
+        petalosLifecycleSection.style.paddingTop = '';
+        petalosLifecycleSection.style.paddingBottom = '';
       }
     }
 
@@ -1617,6 +1628,14 @@
         resetHeroTestingBtns();
         heroV11.style.display = 'block';
         if (heroV11Desc) heroV11Desc.style.display = 'block';
+        
+        if (petalosModuleTitle) {
+          petalosModuleTitle.style.display = '';
+          petalosModuleTitle.style.visibility = 'hidden';
+        }
+        if (petalosLifecycleSection) {
+          petalosLifecycleSection.style.paddingTop = '2.75rem';
+        }
         
         if (heroTrustBadges) {
           heroTrustBadges.style.opacity = '0.5';
