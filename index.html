@@ -74,7 +74,6 @@
         <button id="test-headline-2" class="test-btn" style="margin: 0; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #d1d5db; background: #fff; color: #374151; border-radius: 4px; cursor: pointer; transition: all 0.2s ease;">V2</button>
         <button id="test-headline-3" class="test-btn" style="margin: 0; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #d1d5db; background: #fff; color: #374151; border-radius: 4px; cursor: pointer; transition: all 0.2s ease;">V3</button>
         <button id="test-headline-4" class="test-btn" style="margin: 0; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #d1d5db; background: #fff; color: #374151; border-radius: 4px; cursor: pointer; transition: all 0.2s ease;">V4</button>
-        <button id="test-headline-5" class="test-btn" style="margin: 0; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #d1d5db; background: #fff; color: #374151; border-radius: 4px; cursor: pointer; transition: all 0.2s ease;">V5</button>
         <button id="test-highlight-color" class="test-btn" style="margin: 0; margin-left: 16px; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #d1d5db; background: #f3f4f6; color: #374151; border-radius: 4px; cursor: pointer; transition: all 0.2s ease; font-weight: 500;">Toggle Highlight Color</button>
         <button id="test-v3-punctuation" class="test-btn" style="margin: 0; margin-left: 16px; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #d1d5db; background: #f3f4f6; color: #374151; border-radius: 4px; cursor: pointer; transition: all 0.2s ease; font-weight: 500;">Toggle Punctuation</button>
       </header>
@@ -178,13 +177,6 @@
                   </h1>
                   <h2 class="text-header-subsection" style="margin-top: 20px !important; color: #757575; margin-bottom: 1px; font-size: 30px; font-weight: 400;"><strong style="background: linear-gradient(128.77deg, #e833a4 0%, #d10d88 50%, #a6096b 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent; font-weight: 600;">PetalOS<span style="font-weight: 300; font-size: 0.75em; vertical-align: super;">&trade;</span></strong> <span style="color: #d1d5db; margin: 0 4px; font-weight: 100;">|</span> Pursuit Intelligence for Government Contracts.</h2>
                 </div>
-                <!-- V5 -->
-                <div id="hero-v5" style="padding-bottom: 4px; display: none;">
-                  <h1 class="hero-heading" style="font-size: 84px; line-height: 1; margin-bottom: 0; display: inline-flex; align-items: flex-start; letter-spacing: -.025em; flex-wrap: wrap;">
-                    <span id="v5-headline-text">Find. Qualify.<br>Capture. Propose.</span>
-                  </h1>
-                  <h2 class="text-header-subsection" style="margin-top: 20px !important; color: #757575; margin-bottom: 1px; font-size: 30px; font-weight: 400;">Discover the Right Opportunities. Generate Proposals That Win.</h2>
-                </div>
               </div>
 
               <div class="hero-cta">
@@ -246,7 +238,6 @@
               </style>
               <p id="hero-v1-desc" class="text-body hero-description" style="margin-top: 48px; margin-bottom: 0;">Discover the Right Opportunities.<br>Generate Proposals That Win.</p>
               <p id="hero-v2-desc" class="text-body hero-description pink-theme" style="margin-top: 48px; margin-bottom: 0; display: none;">Discover the <span class="v2-highlight v2-highlight-right">Right</span> Opportunities.<br>Generate Proposals That <span class="v2-highlight v2-highlight-win">Win</span>.</p>
-              <p id="hero-v5-desc" class="text-body hero-description" style="margin-top: 48px; margin-bottom: 0; display: none; font-size: 24px; color: #757575; line-height: 1.3;"><strong style="background: linear-gradient(128.77deg, #e833a4 0%, #d10d88 50%, #a6096b 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent; font-weight: 600;">PetalOS<span style="font-weight: 300; font-size: 0.75em; vertical-align: super;">&trade;</span></strong> <span style="color: #d1d5db; margin: 0 4px; font-weight: 100;">|</span> Pursuit Intelligence for Government Contracts.</p>
               <div class="hero-trust-badges">
                 <div class="hero-trust-divider"></div>
                 <div class="hero-trust-content">
@@ -1445,15 +1436,12 @@
     const btnV2 = document.getElementById('test-headline-2');
     const btnV3 = document.getElementById('test-headline-3');
     const btnV4 = document.getElementById('test-headline-4');
-    const btnV5 = document.getElementById('test-headline-5');
     const heroV1 = document.getElementById('hero-v1');
     const heroV2 = document.getElementById('hero-v2');
     const heroV3 = document.getElementById('hero-v3');
     const heroV4 = document.getElementById('hero-v4');
-    const heroV5 = document.getElementById('hero-v5');
     const heroV1Desc = document.getElementById('hero-v1-desc');
     const heroV2Desc = document.getElementById('hero-v2-desc');
-    const heroV5Desc = document.getElementById('hero-v5-desc');
     const heroTrustBadges = document.querySelector('.hero-trust-badges');
 
     let v1ScrollListener = null;
@@ -1602,29 +1590,6 @@
       }
     }
 
-    function activateV5() {
-      resetHeroTestingBtns();
-      if (heroV5) heroV5.style.display = 'block';
-      if (heroV5Desc) heroV5Desc.style.display = 'block';
-
-      if (heroTrustBadges) {
-        heroTrustBadges.style.opacity = '0.5';
-        heroTrustBadges.style.filter = 'grayscale(100%)';
-        v1ScrollListener = () => {
-          const ratio = Math.min(window.scrollY / 300, 1);
-          heroTrustBadges.style.opacity = (0.5 + 0.5 * ratio).toString();
-          heroTrustBadges.style.filter = `grayscale(${100 - 100 * ratio}%)`;
-        };
-        window.addEventListener('scroll', v1ScrollListener);
-      }
-
-      if (btnV5) {
-        btnV5.style.background = '#D10D88';
-        btnV5.style.borderColor = '#D10D88';
-        btnV5.style.color = '#fff';
-      }
-    }
-
     if (btnV1) {
       btnV1.addEventListener('click', activateV1);
     }
@@ -1636,9 +1601,6 @@
     }
     if (btnV4) {
       btnV4.addEventListener('click', activateV4);
-    }
-    if (btnV5) {
-      btnV5.addEventListener('click', activateV5);
     }
     // Initialize V1 on load
     activateV1();
