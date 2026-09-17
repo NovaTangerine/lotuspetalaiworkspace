@@ -1,4 +1,4 @@
-.intelligence-layer-section {
+.intelligence-layer-section, .opportunity-layer-section {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -13,7 +13,7 @@
   --stream-glow-zero: rgba(209, 13, 136, 0);
 }
 
-.intelligence-layer-section.theme-blue {
+.intelligence-layer-section.theme-blue, .opportunity-layer-section.theme-blue {
   --stream-primary: #04c8c8;
   --stream-light: #90fff6;
   --stream-bright: #50f8f0;
@@ -269,3 +269,185 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+/* Opportunity Layer Styles */
+.opportunity-layer-section {
+  width: 100%;
+}
+
+.opportunity-graphic {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.opportunity-graphic {
+  /* No background color */
+}
+
+
+
+.opp-node {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #64748b;
+  transition: all 0.8s ease;
+  z-index: 5;
+}
+
+.opp-node i {
+  font-size: 32px;
+  color: #94a3b8;
+  transition: all 0.8s ease;
+}
+
+.opp-label {
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.opp-node-hazy {
+  filter: blur(4px);
+  opacity: 0.4;
+  transform: scale(0.9);
+}
+
+.opp-node {
+  filter: blur(0px);
+  opacity: 1;
+  transform: scale(1);
+}
+
+.opp-label {
+  opacity: 1;
+}
+
+/* Specific node styling when jacked in */
+.opp-node:nth-child(2) i, 
+.opp-node:nth-child(4) i {
+  color: #d1d5db; /* Irrelevant / low match fade out slightly */
+}
+.opp-node:nth-child(3) i {
+  color: #10b981; /* High match turns green/branded */
+}
+.opp-node:nth-child(2) .opp-label, 
+.opp-node:nth-child(4) .opp-label {
+  color: #d1d5db;
+}
+
+/* Positioning */
+.opp-pos-1 { top: 20%; left: 20%; }
+.opp-pos-2 { top: 60%; left: 15%; }
+.opp-pos-3 { top: 25%; right: 20%; }
+.opp-pos-4 { top: 70%; right: 25%; }
+
+.central-sonar-node {
+  background: white;
+  border-radius: 50%;
+  padding: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all 0.8s ease;
+  z-index: 10;
+  display: flex;
+}
+
+.central-sonar-node {
+  box-shadow: 0 0 20px 5px rgba(209, 13, 136, 0.3);
+}
+
+.central-sonar-node svg path {
+  fill: #D10D88; /* electrify logo */
+}
+
+.central-sonar-node svg path {
+  transition: fill 0.8s ease;
+}
+
+/* Static Rings */
+.static-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+.static-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid #cbd5e1;
+  transition: border-color 0.8s ease;
+}
+
+@keyframes staticRingPulse {
+  0% { border-color: #cbd5e1; box-shadow: none; transform: scale(1); border-width: 2px; }
+  10% { border-color: #D10D88; box-shadow: 0 0 14px rgba(209, 13, 136, 0.5); transform: scale(1.015); border-width: 2.5px; }
+  50% { border-color: #cbd5e1; box-shadow: none; transform: scale(1); border-width: 2px; }
+  100% { border-color: #cbd5e1; border-width: 2px; }
+}
+
+.static-ring:nth-child(1) { animation: staticRingPulse 1.35s infinite linear 0.3s; }
+.static-ring:nth-child(2) { animation: staticRingPulse 1.35s infinite linear 0.57s; }
+.static-ring:nth-child(3) { animation: staticRingPulse 1.35s infinite linear 0.84s; }
+.static-ring:nth-child(4) { animation: staticRingPulse 1.35s infinite linear 1.11s; }
+.static-ring:nth-child(5) { animation: staticRingPulse 1.35s infinite linear 1.38s; }
+
+.sonar-sweep {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 460px; /* same as the largest ring */
+  height: 460px;
+  margin-top: -230px;
+  margin-left: -230px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(209, 13, 136, 0.1) 340deg, rgba(209, 13, 136, 0.5) 360deg);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sonar-sweep {
+  opacity: 1;
+  animation: radarSweep 3s infinite linear;
+}
+
+@keyframes radarSweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.theme-blue.opportunity-graphic {
+  background-color: #ecfeff; /* cyan background when jacked in */
+}
+.theme-blue.central-sonar-node {
+  box-shadow: 0 0 20px 5px rgba(4, 200, 200, 0.3);
+}
+.theme-blue.central-sonar-node svg path {
+  fill: #04c8c8; /* electrify logo blue */
+}
+.theme-blue.sonar-sweep {
+  background: conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(4, 200, 200, 0.1) 340deg, rgba(4, 200, 200, 0.5) 360deg);
+}
+.theme-blue .intel-title-gradient {
+  background: linear-gradient(135deg, #04c8c8 0%, #a5f3fc 50%, #04c8c8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
