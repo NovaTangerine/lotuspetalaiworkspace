@@ -74,7 +74,6 @@
         <button id="test-headline-2" class="test-btn" style="margin: 0; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #d1d5db; background: #fff; color: #374151; border-radius: 4px; cursor: pointer; transition: all 0.2s ease;">V2</button>
         <button id="test-headline-3" class="test-btn" style="margin: 0; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #d1d5db; background: #fff; color: #374151; border-radius: 4px; cursor: pointer; transition: all 0.2s ease;">V3</button>
         <button id="test-headline-4" class="test-btn" style="margin: 0; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #d1d5db; background: #fff; color: #374151; border-radius: 4px; cursor: pointer; transition: all 0.2s ease;">V4</button>
-        <button id="test-headline-5" class="test-btn" style="margin: 0; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #d1d5db; background: #fff; color: #374151; border-radius: 4px; cursor: pointer; transition: all 0.2s ease;">V5</button>
         <button id="test-highlight-color" class="test-btn" style="margin: 0; margin-left: 16px; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #d1d5db; background: #f3f4f6; color: #374151; border-radius: 4px; cursor: pointer; transition: all 0.2s ease; font-weight: 500;">Toggle Highlight Color</button>
         <button id="test-v3-punctuation" class="test-btn" style="margin: 0; margin-left: 16px; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #d1d5db; background: #f3f4f6; color: #374151; border-radius: 4px; cursor: pointer; transition: all 0.2s ease; font-weight: 500;">Toggle Punctuation</button>
       </header>
@@ -174,22 +173,15 @@
                 <!-- V4 -->
                 <div id="hero-v4" style="padding-bottom: 4px; display: none;">
                   <h1 class="hero-heading" style="font-size: 84px; line-height: 1; margin-bottom: 0; display: inline-flex; align-items: flex-start; letter-spacing: -.025em; flex-wrap: wrap;">
-                    <span id="v4-headline-text">Find. Qualify.<br>Capture. Propose.</span>
-                  </h1>
-                  <h2 class="text-header-subsection" style="margin-top: 20px !important; color: #757575; margin-bottom: 1px; font-size: 30px; font-weight: 400;"><strong style="background: linear-gradient(128.77deg, #e833a4 0%, #d10d88 50%, #a6096b 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent; font-weight: 600;">PetalOS<span style="font-weight: 300; font-size: 0.75em; vertical-align: super;">&trade;</span></strong> <span style="color: #d1d5db; margin: 0 4px; font-weight: 100;">|</span> <span style="background: linear-gradient(90deg, #757575 0%, #a8a8a8 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">Pursuit Intelligence for Government Contracts.</span></h2>
-                </div>
-                <!-- V5 -->
-                <div id="hero-v5" style="padding-bottom: 4px; display: none;">
-                  <h1 class="hero-heading" style="font-size: 76px; line-height: 1; margin-bottom: 0; display: inline-flex; align-items: flex-start; letter-spacing: -.025em; flex-wrap: wrap;">
-                    <span id="v5-headline-text">Find. Qualify. Capture.<br>Propose. Win.</span>
+                    <span id="v4-headline-text">Find. Qualify.<br>Capture. Propose. Win.</span>
                   </h1>
                   <h2 class="text-header-subsection" style="margin-top: 20px !important; color: #757575; margin-bottom: 1px; font-size: 30px; font-weight: 400;"><strong style="background: linear-gradient(128.77deg, #e833a4 0%, #d10d88 50%, #a6096b 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent; font-weight: 600;">PetalOS<span style="font-weight: 300; font-size: 0.75em; vertical-align: super;">&trade;</span></strong> <span style="color: #d1d5db; margin: 0 4px; font-weight: 100;">|</span> <span style="background: linear-gradient(90deg, #757575 0%, #a8a8a8 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">Pursuit Intelligence for Government Contracts.</span></h2>
                 </div>
               </div>
 
               <div class="hero-cta">
-                <a id="hero-primary-btn" class="hero-primary-btn" href="https://lotuspetal.ai/demo/" data-discover="true">Request Demo</a>
-                <a id="hero-secondary-btn" href="#our-solution" class="hero-secondary-btn">See How It Works</a>
+                <a class="hero-primary-btn" href="https://lotuspetal.ai/demo/" data-discover="true">Request Demo</a>
+                <a href="#our-solution" class="hero-secondary-btn">See How It Works</a>
               </div>
               <style>
                 #hero-v1-desc, #hero-v2-desc {
@@ -1444,12 +1436,10 @@
     const btnV2 = document.getElementById('test-headline-2');
     const btnV3 = document.getElementById('test-headline-3');
     const btnV4 = document.getElementById('test-headline-4');
-    const btnV5 = document.getElementById('test-headline-5');
     const heroV1 = document.getElementById('hero-v1');
     const heroV2 = document.getElementById('hero-v2');
     const heroV3 = document.getElementById('hero-v3');
     const heroV4 = document.getElementById('hero-v4');
-    const heroV5 = document.getElementById('hero-v5');
     const heroV1Desc = document.getElementById('hero-v1-desc');
     const heroV2Desc = document.getElementById('hero-v2-desc');
     const heroTrustBadges = document.querySelector('.hero-trust-badges');
@@ -1458,7 +1448,6 @@
 
     const petalosModuleTitle = document.querySelector('.petalos-title');
     const petalosLifecycleSection = document.getElementById('petalos-lifecycle');
-    const heroSecondaryBtn = document.getElementById('hero-secondary-btn');
 
     function resetHeroTestingBtns() {
       const allBtns = document.querySelectorAll('.test-btn:not(#test-highlight-color):not(#test-v3-punctuation)');
@@ -1488,9 +1477,6 @@
       if (petalosLifecycleSection) {
         petalosLifecycleSection.style.paddingTop = '';
         petalosLifecycleSection.style.paddingBottom = '';
-      }
-      if (heroSecondaryBtn) {
-        heroSecondaryBtn.innerText = 'See How It Works';
       }
     }
 
@@ -1604,34 +1590,6 @@
       }
     }
 
-    function activateV5() {
-      resetHeroTestingBtns();
-      if (heroV5) heroV5.style.display = 'block';
-      if (heroV2Desc) heroV2Desc.style.display = 'block';
-
-      if (heroTrustBadges) {
-        heroTrustBadges.style.opacity = '0.5';
-        heroTrustBadges.style.filter = 'grayscale(100%)';
-        v1ScrollListener = () => {
-          const ratio = Math.min(window.scrollY / 300, 1);
-          heroTrustBadges.style.opacity = (0.5 + 0.5 * ratio).toString();
-          heroTrustBadges.style.filter = `grayscale(${100 - 100 * ratio}%)`;
-        };
-        window.addEventListener('scroll', v1ScrollListener);
-      }
-
-      if (btnV5) {
-        btnV5.style.background = '#D10D88';
-        btnV5.style.borderColor = '#D10D88';
-        btnV5.style.color = '#fff';
-      }
-      
-      if (heroSecondaryBtn) {
-        heroSecondaryBtn.innerText = 'Find Me My Opportunities';
-      }
-    }
-
-
     if (btnV1) {
       btnV1.addEventListener('click', activateV1);
     }
@@ -1643,9 +1601,6 @@
     }
     if (btnV4) {
       btnV4.addEventListener('click', activateV4);
-    }
-    if (btnV5) {
-      btnV5.addEventListener('click', activateV5);
     }
     // Initialize V1 on load
     activateV1();
@@ -1662,18 +1617,15 @@
     const btnV3Punctuation = document.getElementById('test-v3-punctuation');
     const v3HeadlineText = document.getElementById('v3-headline-text');
     const v4HeadlineText = document.getElementById('v4-headline-text');
-    const v5HeadlineText = document.getElementById('v5-headline-text');
     let v3PunctuationPeriods = true;
     
     if (btnV3Punctuation) {
       btnV3Punctuation.addEventListener('click', () => {
         v3PunctuationPeriods = !v3PunctuationPeriods;
         const textV3 = v3PunctuationPeriods ? 'Find. Qualify.<br>Capture. Propose.' : 'Find, Qualify,<br>Capture, Propose';
-        const textV4 = v3PunctuationPeriods ? 'Find. Qualify.<br>Capture. Propose.' : 'Find, Qualify,<br>Capture, Propose';
-        const textV5 = v3PunctuationPeriods ? 'Find. Qualify. Capture.<br>Propose. Win.' : 'Find, Qualify, Capture,<br>Propose, Win';
+        const textV4 = v3PunctuationPeriods ? 'Find. Qualify.<br>Capture. Propose. Win.' : 'Find, Qualify,<br>Capture, Propose, Win';
         if (v3HeadlineText) v3HeadlineText.innerHTML = textV3;
         if (v4HeadlineText) v4HeadlineText.innerHTML = textV4;
-        if (v5HeadlineText) v5HeadlineText.innerHTML = textV5;
       });
     }
   </script>
