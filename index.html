@@ -79,6 +79,7 @@
         <button id="test-headline-7" class="test-btn" style="margin: 0; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #d1d5db; background: #fff; color: #374151; border-radius: 4px; cursor: pointer; transition: all 0.2s ease;">V7</button>
         <button id="test-highlight-color" class="test-btn" style="margin: 0; margin-left: 16px; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #d1d5db; background: #f3f4f6; color: #374151; border-radius: 4px; cursor: pointer; transition: all 0.2s ease; font-weight: 500;">Toggle Highlight Color</button>
         <button id="test-v3-punctuation" class="test-btn" style="margin: 0; margin-left: 16px; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #d1d5db; background: #f3f4f6; color: #374151; border-radius: 4px; cursor: pointer; transition: all 0.2s ease; font-weight: 500;">Toggle Punctuation</button>
+        <button id="test-trigger-shimmer" class="test-btn" style="margin: 0; margin-left: 16px; display: inline-flex; align-items: center; justify-content: center; height: 32px; font-size: 0.85rem; padding: 0 16px; border: 1px solid #d1d5db; background: #f3f4f6; color: #374151; border-radius: 4px; cursor: pointer; transition: all 0.2s ease; font-weight: 500;">Trigger Shimmer</button>
       </header>
 
       <!-- Announcement Banner -->
@@ -214,6 +215,36 @@
                   animation: pulse-desc 3s ease-in-out infinite;
                   transform-origin: left center;
                 }
+                #hero-v2-desc.v7-impact {
+                  animation: slideDownFadeIn 1s ease forwards;
+                  animation-delay: 0.5s;
+                  opacity: 0;
+                  display: inline-block;
+                  background: linear-gradient(110deg, #4b5563 35%, #ff33b5 47%, #ffffff 50%, #ff33b5 53%, #4b5563 65%);
+                  background-size: 200% auto;
+                  background-position: 200% center;
+                  -webkit-background-clip: text;
+                  background-clip: text;
+                  color: transparent;
+                }
+                #hero-v2-desc.shimmer-active {
+                  animation: sweepShimmer 2.0s ease-in-out forwards !important;
+                }
+                #hero-v2-desc.shimmer-active .v2-highlight {
+                  -webkit-text-fill-color: transparent;
+                  background: none;
+                  color: inherit;
+                  background-clip: border-box;
+                  -webkit-background-clip: border-box;
+                }
+                @keyframes sweepShimmer {
+                  0% { background-position: 200% center; }
+                  100% { background-position: -200% center; }
+                }
+                @keyframes slideDownFadeIn {
+                  0% { opacity: 0; transform: translateY(-20px); }
+                  100% { opacity: 1; transform: translateY(0); }
+                }
                 @keyframes pulse-desc {
                   0% { opacity: 0.85; transform: scale(1); }
                   50% { opacity: 1; transform: scale(1.02); }
@@ -222,7 +253,7 @@
                 #hero-v1-desc, #hero-v2-desc {
                   transition: color 0.3s ease, font-size 0.3s ease;
                 }
-                .hero-cta:has(a:hover) ~ #hero-v1-desc, .hero-cta:has(a:hover) ~ #hero-v2-desc {
+                .hero-cta:has(a:hover) ~ #hero-v1-desc, .hero-cta:has(a:hover) ~ #hero-v2-desc:not(.v7-impact) {
                   background: linear-gradient(90deg, #D10D88 0%, #ff80d0 50%, #D10D88 100%);
                   background-size: 200% auto;
                   -webkit-background-clip: text;
@@ -1481,6 +1512,8 @@
     const heroV5 = document.getElementById('hero-v5');
     const heroV6 = document.getElementById('hero-v6');
     const heroV7 = document.getElementById('hero-v7');
+    let shimmerTimeout;
+    const btnTriggerShimmer = document.getElementById('test-trigger-shimmer');
     const heroV1Desc = document.getElementById('hero-v1-desc');
     const heroV2Desc = document.getElementById('hero-v2-desc');
     const heroTrustBadges = document.querySelector('.hero-trust-badges');
@@ -1489,6 +1522,7 @@
 
     const petalosModuleTitle = document.querySelector('.petalos-title');
     const petalosLifecycleSection = document.getElementById('petalos-lifecycle');
+    const heroPrimaryBtn = document.getElementById('hero-primary-btn');
     const heroSecondaryBtn = document.getElementById('hero-secondary-btn');
 
     function resetHeroTestingBtns() {
@@ -1503,7 +1537,10 @@
       });
       document.querySelectorAll('p[id^="hero-v"][id$="-desc"]').forEach(desc => {
         desc.style.display = 'none';
-        desc.classList.remove('v6-impact');
+        desc.style.opacity = '';
+        desc.style.transform = '';
+        desc.style.animation = '';
+        desc.classList.remove('v6-impact', 'v7-impact', 'shimmer-active');
       });
       if (heroTrustBadges) {
         heroTrustBadges.style.opacity = '1';
@@ -1520,6 +1557,9 @@
       if (petalosLifecycleSection) {
         petalosLifecycleSection.style.paddingTop = '';
         petalosLifecycleSection.style.paddingBottom = '';
+      }
+      if (heroPrimaryBtn) {
+        heroPrimaryBtn.innerText = 'Request Demo';
       }
       if (heroSecondaryBtn) {
         heroSecondaryBtn.innerText = 'See How It Works';
@@ -1658,8 +1698,11 @@
         btnV5.style.color = '#fff';
       }
       
+      if (heroPrimaryBtn) {
+        heroPrimaryBtn.innerText = 'Find Me My Opportunities';
+      }
       if (heroSecondaryBtn) {
-        heroSecondaryBtn.innerText = 'Find Me My Opportunities';
+        heroSecondaryBtn.innerText = 'Show Me How it Works';
       }
     }
 
@@ -1668,7 +1711,18 @@
       if (heroV6) heroV6.style.display = 'block';
       if (heroV2Desc) {
         heroV2Desc.style.display = 'block';
-        heroV2Desc.classList.add('v6-impact');
+        heroV2Desc.classList.add('v7-impact');
+        setTimeout(() => {
+          if (heroV2Desc.classList.contains('v7-impact')) {
+             heroV2Desc.style.opacity = '1';
+             heroV2Desc.style.transform = 'translateY(0)';
+             heroV2Desc.style.animation = 'none';
+             
+             clearTimeout(shimmerTimeout);
+             heroV2Desc.classList.add('shimmer-active');
+             shimmerTimeout = setTimeout(() => { heroV2Desc.classList.remove('shimmer-active'); }, 2200);
+          }
+        }, 1500);
       }
 
       if (heroTrustBadges) {
@@ -1688,15 +1742,21 @@
         btnV6.style.color = '#fff';
       }
       
+      if (heroPrimaryBtn) {
+        heroPrimaryBtn.innerText = 'Find Me My Opportunities';
+      }
       if (heroSecondaryBtn) {
-        heroSecondaryBtn.innerText = 'Find Me My Opportunities';
+        heroSecondaryBtn.innerText = 'Show Me How it Works';
       }
     }
 
     function activateV7() {
       resetHeroTestingBtns();
       if (heroV7) heroV7.style.display = 'block';
-      if (heroV2Desc) heroV2Desc.style.display = 'block';
+      if (heroV2Desc) {
+        heroV2Desc.style.display = 'block';
+        heroV2Desc.classList.add('v6-impact');
+      }
 
       if (heroTrustBadges) {
         heroTrustBadges.style.opacity = '0.5';
@@ -1715,8 +1775,11 @@
         btnV7.style.color = '#fff';
       }
       
+      if (heroPrimaryBtn) {
+        heroPrimaryBtn.innerText = 'Find Me My Opportunities';
+      }
       if (heroSecondaryBtn) {
-        heroSecondaryBtn.innerText = 'Find Me My Opportunities';
+        heroSecondaryBtn.innerText = 'Show Me How it Works';
       }
     }
 
@@ -1738,6 +1801,30 @@
     }
     if (btnV6) {
       btnV6.addEventListener('click', activateV6);
+    }
+    if (btnV7) {
+      btnV7.addEventListener('click', activateV7);
+    }
+    if (btnV8) {
+      btnV8.addEventListener('click', activateV8);
+    }
+    if (btnTriggerShimmer) {
+      btnTriggerShimmer.addEventListener('click', () => {
+        if (!heroV2Desc.classList.contains('v7-impact')) {
+           activateV6();
+           return;
+        }
+        if (heroV2Desc) {
+          clearTimeout(shimmerTimeout);
+          heroV2Desc.classList.remove('shimmer-active');
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              heroV2Desc.classList.add('shimmer-active');
+              shimmerTimeout = setTimeout(() => { heroV2Desc.classList.remove('shimmer-active'); }, 2200);
+            });
+          });
+        }
+      });
     }
     if (btnV7) {
       btnV7.addEventListener('click', activateV7);
