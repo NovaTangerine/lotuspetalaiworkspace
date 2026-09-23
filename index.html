@@ -1416,10 +1416,14 @@
     let petalosAutoplayInterval = null;
     let petalosCurrentIndex = -1;
 
-    function setPetalosState(index, updateProgressWidth = true) {
+    function setPetalosState(index, updateProgressWidth = true, expandDetails = true) {
         petalosCurrentIndex = index;
         
-        petalosDetailsContainer.classList.add('open');
+        if (expandDetails) {
+            petalosDetailsContainer.classList.add('open');
+        } else {
+            petalosDetailsContainer.classList.remove('open');
+        }
 
         petalosNodes.forEach((node, i) => {
             if (i <= index) {
@@ -1448,14 +1452,19 @@
         }
     }
 
+    let petalosObserver = null;
+    let userInteractedWithPetalos = false;
+
     petalosNodes.forEach((node, index) => {
         node.addEventListener('click', () => {
+            userInteractedWithPetalos = true;
             stopPetalosAutoplay();
             setPetalosState(index);
         });
     });
 
     btnStart.addEventListener('click', () => {
+        userInteractedWithPetalos = true;
         stopPetalosAutoplay();
         setPetalosState(0, false);
         petalosProgress.style.width = '0%';
@@ -1464,6 +1473,7 @@
     });
 
     btnFinish.addEventListener('click', () => {
+        userInteractedWithPetalos = true;
         stopPetalosAutoplay();
         setPetalosState(petalosNodes.length - 1, false);
         petalosProgress.style.width = '100%';
@@ -1479,12 +1489,13 @@
     }
 
     btnAutoplay.addEventListener('click', () => {
+        userInteractedWithPetalos = true;
         if (petalosAutoplayInterval) {
             stopPetalosAutoplay();
         } else {
             btnAutoplay.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>';
             if (petalosCurrentIndex === petalosNodes.length - 1 || petalosCurrentIndex === -1) {
-              setPetalosState(0);
+              setPetalosState(0, true, false);
             }
             petalosAutoplayInterval = setInterval(() => {
                 let nextIndex = petalosCurrentIndex + 1;
@@ -1492,7 +1503,7 @@
                     stopPetalosAutoplay();
                     return;
                 }
-                setPetalosState(nextIndex);
+                setPetalosState(nextIndex, true, false);
             }, 1500);
         }
     });
@@ -1550,6 +1561,11 @@
         window.removeEventListener('scroll', v1ScrollListener);
         v1ScrollListener = null;
       }
+      if (petalosObserver) {
+        petalosObserver.disconnect();
+        petalosObserver = null;
+      }
+      stopPetalosAutoplay();
       if (petalosModuleTitle) {
         petalosModuleTitle.style.display = '';
         petalosModuleTitle.style.visibility = '';
@@ -1734,6 +1750,43 @@
           heroTrustBadges.style.filter = `grayscale(${100 - 100 * ratio}%)`;
         };
         window.addEventListener('scroll', v1ScrollListener);
+      }
+      
+      const nodesContainer = document.querySelector('.petalos-nodes');
+      if (nodesContainer && !userInteractedWithPetalos) {
+        petalosObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (userInteractedWithPetalos) return;
+
+            // When completely out of view (threshold 0)
+            if (entry.intersectionRatio <= 0.1) {
+              if (petalosAutoplayInterval) {
+                stopPetalosAutoplay();
+                setPetalosState(0, true, false); // Reset to beginning unexpanded
+              }
+            } 
+            // When prominently in view (threshold 0.8)
+            else if (entry.intersectionRatio >= 0.8) {
+              if (!petalosAutoplayInterval) {
+                setPetalosState(0, true, false);
+                btnAutoplay.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>';
+                petalosAutoplayInterval = setInterval(() => {
+                  if (userInteractedWithPetalos) {
+                    stopPetalosAutoplay();
+                    return;
+                  }
+                  let nextIndex = petalosCurrentIndex + 1;
+                  if (nextIndex >= petalosNodes.length) {
+                    stopPetalosAutoplay();
+                    return;
+                  }
+                  setPetalosState(nextIndex, true, false);
+                }, 1000);
+              }
+            }
+          });
+        }, { threshold: [0, 0.8] });
+        petalosObserver.observe(nodesContainer);
       }
 
       if (btnV6) {

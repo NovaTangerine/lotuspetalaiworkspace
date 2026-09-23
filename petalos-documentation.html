@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PetalOS Animation States - Documentation</title>
+  <link rel="stylesheet" href="./assets/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fafafa;
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'DM Sans', sans-serif;
+      color: #333;
+    }
+    header {
+      background: white;
+      padding: 24px;
+      border-bottom: 1px solid #eaeaea;
+      text-align: center;
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      margin: 0;
+      color: #D10D88;
+    }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+    .state-container {
+      margin-bottom: 64px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+    .state-header {
+      padding: 24px;
+      border-bottom: 1px solid #eaeaea;
+      background: #fdfdfd;
+    }
+    .state-header h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #111;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .state-badge {
+      background: #D10D88;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 99px;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+    .state-image {
+      width: 100%;
+      display: block;
+      background: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>PetalOS Animation States</h1>
+    <p>Documentation for the interactive lifecycle section.</p>
+  </header>
+
+  <main>
+    <div class="state-container">
+      <div class="state-header">
+        <h2><span class="state-badge">State 1</span> Discover</h2>
+        <p>The initial state highlighting the discovery phase of the lifecycle.</p>
+      </div>
+      <img class="state-image" src="./assets/petalos_state_1.png" alt="PetalOS Discover State" />
+    </div>
+
+    <div class="state-container">
+      <div class="state-header">
+        <h2><span class="state-badge">State 2</span> Match Fit</h2>
+        <p>The second state demonstrating opportunity matching and fit assessment.</p>
+      </div>
+      <img class="state-image" src="./assets/petalos_state_2.png" alt="PetalOS Match Fit State" />
+    </div>
+
+    <div class="state-container">
+      <div class="state-header">
+        <h2><span class="state-badge">State 3</span> Capture</h2>
+        <p>The third state focused on capture management and pursuit strategy.</p>
+      </div>
+      <img class="state-image" src="./assets/petalos_state_3.png" alt="PetalOS Capture State" />
+    </div>
+
+    <div class="state-container">
+      <div class="state-header">
+        <h2><span class="state-badge">State 4</span> Compliance</h2>
+        <p>The fourth state emphasizing proposal compliance and review.</p>
+      </div>
+      <img class="state-image" src="./assets/petalos_state_4.png" alt="PetalOS Compliance State" />
+    </div>
+
+    <div class="state-container">
+      <div class="state-header">
+        <h2><span class="state-badge">State 5</span> Propose</h2>
+        <p>The final state representing the generated proposal submission.</p>
+      </div>
+      <img class="state-image" src="./assets/petalos_state_5.png" alt="PetalOS Propose State" />
+    </div>
+    <div class="state-container" style="padding: 40px; margin-top: 64px;">
+      <h2 style="font-family: 'Space Grotesk', sans-serif; color: #D10D88; margin-top: 0; font-size: 2rem;">Technical & UX Considerations: Animations</h2>
+      
+      <div style="margin-top: 32px;">
+        <h3 style="font-size: 1.25rem; color: #111;">1. Circling Ring / Light Trails</h3>
+        <p style="line-height: 1.6; color: #555;">
+          The infinite looping trails behind the PetalOS module are built using SVG and pure CSS animations to guarantee smooth 60fps performance without taxing the JavaScript main thread. 
+        </p>
+        <ul style="line-height: 1.6; color: #555;">
+          <li><strong>Implementation:</strong> The trails utilize <code>stroke-dasharray</code> and <code>stroke-dashoffset</code> to create the illusion of a line being drawn. A CSS <code>@keyframes</code> animation pushes the offset infinitely.</li>
+          <li><strong>Performance:</strong> By isolating the rotation to a wrapper `div` and using CSS transforms (<code>transform: rotate()</code>), we force hardware acceleration.</li>
+          <li><strong>Visuals:</strong> The dual interlocking trails are achieved by placing two SVG instances on top of one another and offsetting the animation delay (<code>.delay</code> modifier) and rotation scale.</li>
+        </ul>
+      </div>
+
+      <div style="margin-top: 32px;">
+        <h3 style="font-size: 1.25rem; color: #111;">2. The Bubble (Node) Auto-Sequence</h3>
+        <p style="line-height: 1.6; color: #555;">
+          To immediately demonstrate value when the PetalOS section scrolls into view, we implemented an autonomous timeline progression.
+        </p>
+        <ul style="line-height: 1.6; color: #555;">
+          <li><strong>Scroll Triggering:</strong> An <code>IntersectionObserver</code> monitors the `.petalos-nodes` container. It's configured with dual thresholds: <code>[0, 0.8]</code>.</li>
+          <li><strong>Activation:</strong> The animation only begins when the user has scrolled the component prominently into view (80% intersection). This prevents the animation from finishing off-screen.</li>
+          <li><strong>Deactivation & Reset:</strong> If the user scrolls past the section before it finishes (0% intersection), the interval is cleared and the state resets to 0. This ensures the component is always ready to re-demonstrate its value if the user scrolls back.</li>
+          <li><strong>Collapsed Definitions:</strong> During this automated cycle, the detailed definitions drop-down remains collapsed to prevent disruptive layout shifts while the user is actively reading or scrolling.</li>
+        </ul>
+      </div>
+
+      <div style="margin-top: 32px;">
+        <h3 style="font-size: 1.25rem; color: #111;">3. Yielding to User Interaction</h3>
+        <p style="line-height: 1.6; color: #555;">
+          The most critical UX decision is yielding control to the user. The automated sequence is strictly a passive demonstration.
+        </p>
+        <ul style="line-height: 1.6; color: #555;">
+          <li><strong>Manual Override:</strong> A global <code>userInteractedWithPetalos</code> flag tracks explicit intent. The moment a user clicks a specific bubble or timeline button, this flag is set to true.</li>
+          <li><strong>Graceful Exit:</strong> The auto-play interval is immediately destroyed. The UI expands to show the detailed text for the selected stage, transitioning the component from a "demonstration" mode into an "interactive exploration" mode.</li>
+          <li><strong>Observer Ignorance:</strong> Once the user has interacted, the IntersectionObserver safely ignores all future scroll events. This guarantees the user doesn't lose their place or get frustrated by the UI randomly resetting if they briefly scroll away to reference other content.</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
