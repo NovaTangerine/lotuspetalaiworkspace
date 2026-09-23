@@ -1535,6 +1535,7 @@
     const petalosLifecycleSection = document.getElementById('petalos-lifecycle');
     const heroPrimaryBtn = document.getElementById('hero-primary-btn');
     const heroSecondaryBtn = document.getElementById('hero-secondary-btn');
+    const topNavBtn = document.querySelector('header._header_12mqx_1 ._button_12mqx_62 a');
 
     function resetHeroTestingBtns() {
       const allBtns = document.querySelectorAll('.test-btn:not(#test-highlight-color):not(#test-v3-punctuation)');
@@ -1579,6 +1580,9 @@
       }
       if (heroSecondaryBtn) {
         heroSecondaryBtn.innerText = 'See How It Works';
+      }
+      if (topNavBtn) {
+        topNavBtn.innerText = 'Request Demo';
       }
     }
 
@@ -1800,6 +1804,9 @@
       }
       if (heroSecondaryBtn) {
         heroSecondaryBtn.innerText = 'Show Me How it Works';
+      }
+      if (topNavBtn) {
+        topNavBtn.innerText = 'Find Me My Opportunities';
       }
     }
 
