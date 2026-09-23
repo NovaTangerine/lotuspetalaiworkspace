@@ -1526,16 +1526,9 @@
       if (heroV6) heroV6.style.display = 'block';
       if (heroV2Desc) {
         heroV2Desc.style.display = 'block';
-        heroV2Desc.classList.add('v7-impact');
-        setTimeout(() => {
-          if (heroV2Desc.classList.contains('v7-impact')) {
-             heroV2Desc.style.opacity = '1';
-             heroV2Desc.style.transform = 'translateY(0)';
-             heroV2Desc.style.animation = 'none';
-             
-             
-          }
-        }, 1500);
+        heroV2Desc.style.opacity = '1';
+        heroV2Desc.style.transform = 'none';
+        heroV2Desc.style.animation = 'none';
       }
 
       if (heroTrustBadges) {
