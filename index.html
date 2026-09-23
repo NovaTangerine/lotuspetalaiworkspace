@@ -1452,14 +1452,7 @@
     });
 
     // Hero Variant Toggle Logic
-    const btnV1 = document.getElementById('test-headline-1');
-    const btnV2 = document.getElementById('test-headline-2');
-    const btnV3 = document.getElementById('test-headline-3');
-    const btnV4 = document.getElementById('test-headline-4');
-    const btnV5 = document.getElementById('test-headline-5');
-    const btnV6 = document.getElementById('test-headline-6');
-    const btnV7 = document.getElementById('test-headline-7');
-    const heroV1 = document.getElementById('hero-v1');
+                                const heroV1 = document.getElementById('hero-v1');
     const heroV2 = document.getElementById('hero-v2');
     const heroV3 = document.getElementById('hero-v3');
     const heroV4 = document.getElementById('hero-v4');
@@ -1467,8 +1460,7 @@
     const heroV6 = document.getElementById('hero-v6');
     const heroV7 = document.getElementById('hero-v7');
     let shimmerTimeout;
-    const btnTriggerShimmer = document.getElementById('test-trigger-shimmer');
-    const heroV1Desc = document.getElementById('hero-v1-desc');
+        const heroV1Desc = document.getElementById('hero-v1-desc');
     const heroV2Desc = document.getElementById('hero-v2-desc');
     const heroTrustBadges = document.querySelector('.hero-trust-badges');
 
@@ -1526,146 +1518,6 @@
       }
       if (topNavBtn) {
         topNavBtn.innerText = 'Request Demo';
-      }
-    }
-
-    function activateV1() {
-      resetHeroTestingBtns();
-      if (heroV1) heroV1.style.display = 'block';
-      if (heroV1Desc) heroV1Desc.style.display = 'block';
-
-      if (petalosModuleTitle) {
-        petalosModuleTitle.style.display = '';
-        petalosModuleTitle.style.visibility = 'hidden';
-      }
-      if (petalosLifecycleSection) {
-        petalosLifecycleSection.style.paddingTop = '2.75rem';
-      }
-
-      if (heroTrustBadges) {
-        heroTrustBadges.style.opacity = '0.5';
-        heroTrustBadges.style.filter = 'grayscale(100%)';
-        v1ScrollListener = () => {
-          const ratio = Math.min(window.scrollY / 300, 1);
-          heroTrustBadges.style.opacity = (0.5 + 0.5 * ratio).toString();
-          heroTrustBadges.style.filter = `grayscale(${100 - 100 * ratio}%)`;
-        };
-        window.addEventListener('scroll', v1ScrollListener);
-      }
-
-      if (btnV1) {
-        btnV1.style.background = '#D10D88';
-        btnV1.style.borderColor = '#D10D88';
-        btnV1.style.color = '#fff';
-      }
-    }
-
-    function activateV2() {
-      resetHeroTestingBtns();
-      if (heroV2) heroV2.style.display = 'block';
-      if (heroV2Desc) heroV2Desc.style.display = 'block';
-
-      if (petalosModuleTitle) {
-        petalosModuleTitle.style.display = '';
-        petalosModuleTitle.style.visibility = 'hidden';
-      }
-      if (petalosLifecycleSection) {
-        petalosLifecycleSection.style.paddingTop = '2.75rem';
-      }
-
-      if (heroTrustBadges) {
-        heroTrustBadges.style.opacity = '0.5';
-        heroTrustBadges.style.filter = 'grayscale(100%)';
-        v1ScrollListener = () => {
-          const ratio = Math.min(window.scrollY / 300, 1);
-          heroTrustBadges.style.opacity = (0.5 + 0.5 * ratio).toString();
-          heroTrustBadges.style.filter = `grayscale(${100 - 100 * ratio}%)`;
-        };
-        window.addEventListener('scroll', v1ScrollListener);
-      }
-
-      if (btnV2) {
-        btnV2.style.background = '#D10D88';
-        btnV2.style.borderColor = '#D10D88';
-        btnV2.style.color = '#fff';
-      }
-    }
-
-    function activateV3() {
-      resetHeroTestingBtns();
-      if (heroV3) heroV3.style.display = 'block';
-      if (heroV2Desc) heroV2Desc.style.display = 'block';
-
-
-
-      if (heroTrustBadges) {
-        heroTrustBadges.style.opacity = '0.5';
-        heroTrustBadges.style.filter = 'grayscale(100%)';
-        v1ScrollListener = () => {
-          const ratio = Math.min(window.scrollY / 300, 1);
-          heroTrustBadges.style.opacity = (0.5 + 0.5 * ratio).toString();
-          heroTrustBadges.style.filter = `grayscale(${100 - 100 * ratio}%)`;
-        };
-        window.addEventListener('scroll', v1ScrollListener);
-      }
-
-      if (btnV3) {
-        btnV3.style.background = '#D10D88';
-        btnV3.style.borderColor = '#D10D88';
-        btnV3.style.color = '#fff';
-      }
-    }
-
-    function activateV4() {
-      resetHeroTestingBtns();
-      if (heroV4) heroV4.style.display = 'block';
-      if (heroV2Desc) heroV2Desc.style.display = 'block';
-
-      if (heroTrustBadges) {
-        heroTrustBadges.style.opacity = '0.5';
-        heroTrustBadges.style.filter = 'grayscale(100%)';
-        v1ScrollListener = () => {
-          const ratio = Math.min(window.scrollY / 300, 1);
-          heroTrustBadges.style.opacity = (0.5 + 0.5 * ratio).toString();
-          heroTrustBadges.style.filter = `grayscale(${100 - 100 * ratio}%)`;
-        };
-        window.addEventListener('scroll', v1ScrollListener);
-      }
-
-      if (btnV4) {
-        btnV4.style.background = '#D10D88';
-        btnV4.style.borderColor = '#D10D88';
-        btnV4.style.color = '#fff';
-      }
-    }
-
-    function activateV5() {
-      resetHeroTestingBtns();
-      if (heroV5) heroV5.style.display = 'block';
-      if (heroV2Desc) heroV2Desc.style.display = 'block';
-
-      if (heroTrustBadges) {
-        heroTrustBadges.style.opacity = '0.5';
-        heroTrustBadges.style.filter = 'grayscale(100%)';
-        v1ScrollListener = () => {
-          const ratio = Math.min(window.scrollY / 300, 1);
-          heroTrustBadges.style.opacity = (0.5 + 0.5 * ratio).toString();
-          heroTrustBadges.style.filter = `grayscale(${100 - 100 * ratio}%)`;
-        };
-        window.addEventListener('scroll', v1ScrollListener);
-      }
-
-      if (btnV5) {
-        btnV5.style.background = '#D10D88';
-        btnV5.style.borderColor = '#D10D88';
-        btnV5.style.color = '#fff';
-      }
-      
-      if (heroPrimaryBtn) {
-        heroPrimaryBtn.innerText = 'Find Me My Opportunities';
-      }
-      if (heroSecondaryBtn) {
-        heroSecondaryBtn.innerText = 'Show Me How it Works';
       }
     }
 
@@ -1736,11 +1588,7 @@
         petalosObserver.observe(nodesContainer);
       }
 
-      if (btnV6) {
-        btnV6.style.background = '#D10D88';
-        btnV6.style.borderColor = '#D10D88';
-        btnV6.style.color = '#fff';
-      }
+      
       
       if (heroPrimaryBtn) {
         heroPrimaryBtn.innerText = 'Find Me My Opportunities';
@@ -1753,85 +1601,6 @@
       }
     }
 
-    function activateV7() {
-      resetHeroTestingBtns();
-      if (heroV7) heroV7.style.display = 'block';
-      if (heroV2Desc) {
-        heroV2Desc.style.display = 'block';
-        heroV2Desc.classList.add('v6-impact');
-      }
-
-      if (heroTrustBadges) {
-        heroTrustBadges.style.opacity = '0.5';
-        heroTrustBadges.style.filter = 'grayscale(100%)';
-        v1ScrollListener = () => {
-          const ratio = Math.min(window.scrollY / 300, 1);
-          heroTrustBadges.style.opacity = (0.5 + 0.5 * ratio).toString();
-          heroTrustBadges.style.filter = `grayscale(${100 - 100 * ratio}%)`;
-        };
-        window.addEventListener('scroll', v1ScrollListener);
-      }
-
-      if (btnV7) {
-        btnV7.style.background = '#D10D88';
-        btnV7.style.borderColor = '#D10D88';
-        btnV7.style.color = '#fff';
-      }
-      
-      if (heroPrimaryBtn) {
-        heroPrimaryBtn.innerText = 'Find Me My Opportunities';
-      }
-      if (heroSecondaryBtn) {
-        heroSecondaryBtn.innerText = 'Show Me How it Works';
-      }
-    }
-
-
-    if (btnV1) {
-      btnV1.addEventListener('click', activateV1);
-    }
-    if (btnV2) {
-      btnV2.addEventListener('click', activateV2);
-    }
-    if (btnV3) {
-      btnV3.addEventListener('click', activateV3);
-    }
-    if (btnV4) {
-      btnV4.addEventListener('click', activateV4);
-    }
-    if (btnV5) {
-      btnV5.addEventListener('click', activateV5);
-    }
-    if (btnV6) {
-      btnV6.addEventListener('click', activateV6);
-    }
-    if (btnV7) {
-      btnV7.addEventListener('click', activateV7);
-    }
-    if (btnV8) {
-      btnV8.addEventListener('click', activateV8);
-    }
-    if (btnTriggerShimmer) {
-      btnTriggerShimmer.addEventListener('click', () => {
-        if (!heroV2Desc.classList.contains('v7-impact')) {
-           activateV6();
-           return;
-        }
-        if (heroV2Desc) {
-          clearTimeout(shimmerTimeout);
-          heroV2Desc.classList.remove('shimmer-active');
-          requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-              heroV2Desc.classList.add('shimmer-active');
-              shimmerTimeout = setTimeout(() => { heroV2Desc.classList.remove('shimmer-active'); }, 2200);
-            });
-          });
-        }
-      });
-    }
-    if (btnV7) {
-      btnV7.addEventListener('click', activateV7);
-    }
     // Initialize V6 on load
     activateV6();
 
