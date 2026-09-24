@@ -20,8 +20,8 @@
     <button id="test-theme-btn" class="test-btn" style="margin: 0; display: inline-flex; align-items: center; justify-content: center; height: 32px; background: #D10D88; color: #fff; border: 1px solid #D10D88; border-radius: 4px; font-size: 0.85rem; padding: 0 16px; transition: all 0.2s ease; cursor: pointer;">Toggle Blue Pipeline</button>
   </header>
 
-  <main style="flex: 1; display: flex; justify-content: center; align-items: center; padding: 2rem;">
-    <section class="intelligence-layer-section">
+  <main style="flex: 1; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; padding: 2rem; gap: 64px;">
+    <section class="intelligence-layer-section" style="margin-top: 100px; margin-bottom: 100px;">
     <div class="intelligence-container">
       
       <!-- Visual Graphic Column -->
@@ -131,6 +131,77 @@
 
     </div>
   </section>
+
+    <!-- Documentation Section -->
+    <div style="width: 100%; max-width: 1200px; font-family: 'DM Sans', sans-serif;">
+      
+      <div style="margin-bottom: 64px; background: white; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.05); overflow: hidden;">
+        <div style="padding: 24px; border-bottom: 1px solid #eaeaea; background: #fdfdfd;">
+          <h2 style="margin: 0; font-size: 1.5rem; color: #111; display: flex; align-items: center; gap: 12px;">
+            <span style="background: #D10D88; color: white; padding: 4px 12px; border-radius: 99px; font-size: 0.875rem; font-weight: 600;">State 1</span> 
+            Top Source Active
+          </h2>
+          <p style="margin-top: 8px; color: #555;">The top data source is actively streaming context into the PetalOS engine.</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 64px; background: white; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.05); overflow: hidden;">
+        <div style="padding: 24px; border-bottom: 1px solid #eaeaea; background: #fdfdfd;">
+          <h2 style="margin: 0; font-size: 1.5rem; color: #111; display: flex; align-items: center; gap: 12px;">
+            <span style="background: #D10D88; color: white; padding: 4px 12px; border-radius: 99px; font-size: 0.875rem; font-weight: 600;">State 2</span> 
+            Mid Source Active
+          </h2>
+          <p style="margin-top: 8px; color: #555;">The middle data source is actively streaming context into the PetalOS engine.</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 64px; background: white; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.05); overflow: hidden;">
+        <div style="padding: 24px; border-bottom: 1px solid #eaeaea; background: #fdfdfd;">
+          <h2 style="margin: 0; font-size: 1.5rem; color: #111; display: flex; align-items: center; gap: 12px;">
+            <span style="background: #D10D88; color: white; padding: 4px 12px; border-radius: 99px; font-size: 0.875rem; font-weight: 600;">State 3</span> 
+            Bottom Source Active
+          </h2>
+          <p style="margin-top: 8px; color: #555;">The bottom data source is actively streaming context into the PetalOS engine.</p>
+        </div>
+      </div>
+
+      <div style="background: white; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.05); padding: 40px;">
+        <h2 style="font-family: 'Space Grotesk', sans-serif; color: #D10D88; margin-top: 0; font-size: 2rem;">Technical & UX Considerations: Intelligence Layer</h2>
+        
+        <div style="margin-top: 32px;">
+          <h3 style="font-size: 1.25rem; color: #111;">1. Pipeline Data Streaming</h3>
+          <p style="line-height: 1.6; color: #555;">
+            The intelligence layer visualizes data flowing from multiple disparate sources into the central PetalOS engine. The active pipeline is highlighted using complex SVG gradients and filters.
+          </p>
+          <ul style="line-height: 1.6; color: #555;">
+            <li><strong>Implementation:</strong> The flowing energy effect is created using an SVG <code>&lt;linearGradient&gt;</code> that animates its <code>gradientTransform</code> attribute indefinitely. A custom Gaussian blur filter (<code>#glow</code>) is applied to the active stroke to give it a luminescent quality.</li>
+            <li><strong>Z-Indexing:</strong> Because SVG elements render in DOM order, the active, glowing path is strategically placed last within the <code>&lt;svg&gt;</code> structure so it naturally sits above all inactive paths.</li>
+            <li><strong>Smooth Transitions:</strong> The SVG <code>d</code> attribute (path data) is dynamically updated via JavaScript. A CSS transition on the <code>stroke</code> property ensures smooth color fading on the source connection nodes (spigots) as they activate and deactivate.</li>
+          </ul>
+        </div>
+
+        <div style="margin-top: 32px;">
+          <h3 style="font-size: 1.25rem; color: #111;">2. Autonomous Cycling Logic</h3>
+          <p style="line-height: 1.6; color: #555;">
+            The component features an autonomous cycle that rotates through the three intelligence sources (Top, Mid, Bottom) every 4 seconds to demonstrate continuous data ingestion.
+          </p>
+          <ul style="line-height: 1.6; color: #555;">
+            <li><strong>State Management:</strong> A simple index tracker loops continuously. Upon each cycle, the previous node's active classes are removed, and the new target node, spigot, and path are highlighted.</li>
+            <li><strong>User Override:</strong> When a user manually triggers the "Test Pipeline Switch" button, the automatic <code>setInterval</code> timer is immediately cleared and reset to prevent conflicts.</li>
+          </ul>
+        </div>
+
+        <div style="margin-top: 32px;">
+          <h3 style="font-size: 1.25rem; color: #111;">3. Thematic Controls</h3>
+          <p style="line-height: 1.6; color: #555;">
+            The visualization includes native support for contextual thematic changes, allowing the intelligence layer to adapt its color palette based on external triggers or application state.
+          </p>
+          <ul style="line-height: 1.6; color: #555;">
+            <li><strong>Implementation:</strong> Toggling the "Blue Pipeline" mode applies a <code>.theme-blue</code> class to the parent container. This class overrides the default CSS variables, instantly transforming the active states, gradients, and typography.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </main>
 
   <script>
